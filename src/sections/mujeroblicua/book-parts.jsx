@@ -83,7 +83,7 @@ export const PageImg = forwardRef((props, ref) => {
       sx={{ background: "#FFFFF5", color: "#993031", borderRadius: 4 }}
     >
       <Card>
-        <CardMedia component={"image"} sx={{ height: 600 }} image={props.img} />
+        <CardMedia component={"img"} sx={{ height: 600 }} image={props.img} />
         {props.children}
       </Card>
     </Container>
