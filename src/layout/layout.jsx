@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Header from "../components/Header";
-import Content from "/src/layout/content";
+import Content from "./content";
 
 export default function Layout({ children }) {
   return (

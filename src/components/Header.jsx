@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { m } from "framer-motion";
 import logo from "/media/logo.webp";
-import DrawerLogo from "/src/components/DrawerLogo";
+import DrawerLogo from "./DrawerLogo";
 
 export default function Header() {
   const navigate = useNavigate();

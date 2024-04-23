@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Content from "/src/layout/content";
+import Content from "./content";
 
 export default function Compact({ children }) {
   return (

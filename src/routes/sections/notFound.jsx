@@ -1,6 +1,6 @@
 import {lazy } from "react";
 import { Outlet } from "react-router-dom";
-import Compact from "/src/layout/compact";
+import Compact from "../../layout/compact";
 
 const NotFound = lazy(() => import("../../pages/404"));
 
