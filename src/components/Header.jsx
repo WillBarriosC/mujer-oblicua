@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { m } from "framer-motion";
-import logo from "/src/assets/media/logo.webp";
+import logo from "/media/logo.webp";
 import DrawerLogo from "/src/components/DrawerLogo";
 
 export default function Header() {
@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
-        position="static"
+        position="fixed"
         component="nav"
         sx={{ backgroundColor: "#ffffff" }}
       >

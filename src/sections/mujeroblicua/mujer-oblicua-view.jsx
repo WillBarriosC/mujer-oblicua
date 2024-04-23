@@ -9,7 +9,7 @@ import {
   PageImg,
 } from "./book-parts";
 import PdfButton from "../../components/PdfButton";
-import collagePoem1 from "../../assets/media/ilustration_2.webp";
+import collagePoem1 from "/media/ilustration_2.webp";
 
 export default function MujerOblicuaView() {
   return (

@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { Box, Card, CardMedia, Container } from "@mui/material";
-import portraitImage from "/src/assets/media/portrait.webp";
-import imgCoverFrontIn from "../../assets/media/ilustration_2.webp";
+import portraitImage from "/media/portrait.webp";
+import imgCoverFrontIn from "/media/ilustration_2.webp";
 
 export const PageCoverFront = forwardRef((props, ref) => {
   return (

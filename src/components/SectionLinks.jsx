@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { m } from "framer-motion";
-import backgroundImage from "/src/assets/background/overlay.webp";
+import backgroundImage from "/background/overlay.webp";
 
 const sectionsList = [
   { text: "Intro", link: "intro" },

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Box } from "@mui/material";
-import backgroundImage from "/src/assets/background/overlay.webp";
+import backgroundImage from "/background/overlay.webp";
 
 export default function Content({ children }) {
   return (

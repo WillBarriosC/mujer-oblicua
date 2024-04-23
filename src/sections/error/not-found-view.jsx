@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Button, IconButton, Typography } from "@mui/material";
-import logo from "/src/assets/media/logo.webp";
+import logo from "/media/logo.webp";
 import { m } from "framer-motion";
 
 // ----------------------------------------------------------------------

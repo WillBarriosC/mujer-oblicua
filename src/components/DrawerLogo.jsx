@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import ilustration from "/src/assets/media/ilustration_1.webp";
+import ilustration from "/media/ilustration_1.webp";
 
 const sectionsList = [
   { text: "Intro", link: "intro" },
