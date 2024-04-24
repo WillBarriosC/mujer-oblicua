@@ -1,4 +1,5 @@
-import {lazy } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { lazy } from "react";
 import { Outlet } from "react-router-dom";
 import Compact from "../../layout/compact";
 
@@ -8,7 +9,7 @@ export const notFound = [
   {
     element: (
       <Compact>
-          <Outlet />
+        <Outlet />
       </Compact>
     ),
     children: [
