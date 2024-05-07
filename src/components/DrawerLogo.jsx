@@ -10,26 +10,40 @@ import {
   ListItemIcon,
   ListItemText,
   IconButton,
-  Typography,
 } from "@mui/material";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import Logo from "./Logo";
+import HomeIcon from "@mui/icons-material/Home";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import FemaleIcon from "@mui/icons-material/Female";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
+import ContactsIcon from "@mui/icons-material/Contacts";
 import ilustration from "/media/ilustration_1.webp";
 
 const sectionsList = [
-  { text: "Intro", link: "intro" },
-  { text: "Mujer Oblicua", link: "mujer-oblicua" },
-  { text: "Lectura Coral", link: "lectura-coral" },
-  { text: "Olas de Horas", link: "olas-de-horas" },
+  { title: "Intro", path: "/intro", icon: <PlayArrowIcon /> },
+  { title: "Mujer Oblicua", path: "/mujer-oblicua", icon: <FemaleIcon /> },
+  { title: "Lectura Coral", path: "/lectura-coral", icon: <MenuBookIcon /> },
+  {
+    title: "Olas de Horas",
+    path: "/olas-de-horas",
+    icon: <AccessTimeFilledIcon />,
+  },
 ];
 
 const otherList = [
-  { text: "Acerca de mi", link: "acerca-de-mi" },
-  { text: "Donacion", link: "donacion" },
-  { text: "Contacto", link: "contacto" },
+  {
+    title: "Acerca de mi",
+    path: "/acerca-de-mi",
+    icon: <SelfImprovementIcon />,
+  },
+  { title: "Donación", path: "/donacion", icon: <VolunteerActivismIcon /> },
+  { title: "Contacto", path: "/contacto", icon: <ContactsIcon /> },
 ];
 
-const sideBarLogo = <img src={ilustration} height={75} />;
+const sideBarLogo = <img src={ilustration} height={75} alt="sideBarLogo" />;
 
 export default function DrawerLogo() {
   const [open, setOpen] = useState(false);
@@ -41,28 +55,16 @@ export default function DrawerLogo() {
 
   const DrawerList = (
     <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
+      <Box sx={{ p: 1 }}>
+        <Logo />
+      </Box>
+      <Divider />
+
       <List>
-        <ListItem disablePadding>
-          <Typography
-            variant="h2"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              fontWeight: "bold",
-              color: "black",
-              textAlign: "center",
-            }}
-          >
-            MUJER OBLICUA
-          </Typography>
-        </ListItem>
-
-        <Divider />
-
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
-              <MailIcon />
+              <HomeIcon />
             </ListItemIcon>
             <ListItemText primary={"Home"} onClick={() => navigate("/")} />
           </ListItemButton>
@@ -70,15 +72,13 @@ export default function DrawerLogo() {
 
         <Divider />
 
-        {sectionsList.map((text, index) => (
+        {sectionsList.map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+              <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText
-                primary={text.text}
-                onClick={() => navigate(`/${text.link}`)}
+                primary={item.title}
+                onClick={() => navigate(item.path)}
               />
             </ListItemButton>
           </ListItem>
@@ -86,15 +86,13 @@ export default function DrawerLogo() {
 
         <Divider />
 
-        {otherList.map((text, index) => (
+        {otherList.map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+              <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText
-                primary={text.text}
-                onClick={() => navigate(`/${text.link}`)}
+                primary={item.title}
+                onClick={() => navigate(item.path)}
               />
             </ListItemButton>
           </ListItem>
@@ -108,6 +106,7 @@ export default function DrawerLogo() {
       <IconButton disableRipple onClick={toggleDrawer(true)}>
         {sideBarLogo}
       </IconButton>
+
       <Drawer open={open} onClose={toggleDrawer(false)} anchor={"right"}>
         {DrawerList}
       </Drawer>

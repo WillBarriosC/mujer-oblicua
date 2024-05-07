@@ -1,16 +1,15 @@
 import { Box, Container, Paper, Stack } from "@mui/material";
+import {
+  SectionAnimation,
+  NavigateAnimation,
+} from "../../components/animation";
 import VideoPlayer from "react-player/lazy";
-import { m } from "framer-motion";
 import PdfButton from "../../components/PdfButton";
 
 export default function LecturaCoralView() {
   return (
-    <Container maxWidth={"lg"}>
-      <m.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
+    <Container sx={{ pt: 18 }} maxWidth={"lg"}>
+      <SectionAnimation>
         <Stack spacing={2}>
           <Paper
             elevation={24}
@@ -25,10 +24,12 @@ export default function LecturaCoralView() {
             />
           </Paper>
           <Box sx={{ flexGrow: 1 }} display={"flex"} justifyContent={"center"}>
-            <PdfButton />
+            <NavigateAnimation>
+              <PdfButton />
+            </NavigateAnimation>
           </Box>
         </Stack>
-      </m.div>
+      </SectionAnimation>
     </Container>
   );
 }

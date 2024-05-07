@@ -9,26 +9,23 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { m } from "framer-motion";
-import logo from "/media/logo.webp";
+import { MainAnimation, NavigateAnimation } from "./animation";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Logo from "./Logo";
 import DrawerLogo from "./DrawerLogo";
 
 export default function Header() {
+  const matches = useMediaQuery("(min-width:768px)");
   const navigate = useNavigate();
-  const Logo = () => <img src={logo} height={75} />;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
         component="nav"
-        sx={{ backgroundColor: "#ffffff" }}
+        sx={{ p: 2, backgroundColor: "#ffffff" }}
       >
-        <m.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <MainAnimation>
           <Toolbar>
             <Container maxWidth="false">
               <Grid
@@ -38,32 +35,44 @@ export default function Header() {
                 alignItems={"center"}
               >
                 <Grid item>
-                  <IconButton disableRipple onClick={() => navigate("/")}>
-                    <Logo />
-                  </IconButton>
+                  <NavigateAnimation>
+                    <IconButton disableRipple onClick={() => navigate("/")}>
+                      <Logo />
+                    </IconButton>
+                  </NavigateAnimation>
                 </Grid>
-                <Grid>
+                <Grid item>
                   <Stack direction={"row"} alignItems={"center"} spacing={5}>
-                    <Typography
-                      variant="h4"
-                      component="div"
-                      sx={{
-                        flexGrow: 1,
-                        fontWeight: "bold",
-                        color: "black",
-                        cursor: "pointer",
-                      }}
-                      onClick={() => navigate("/acerca-de-mi")}
-                    >
-                      Daniela Prado
-                    </Typography>
-                    <DrawerLogo />
+                    <Grid item>
+                      <NavigateAnimation>
+                        {matches && (
+                          <Typography
+                            variant="h4"
+                            component="a"
+                            sx={{
+                              flexGrow: 1,
+                              fontWeight: "bold",
+                              color: "black",
+                              cursor: "pointer",
+                            }}
+                            onClick={() => navigate("/acerca-de-mi")}
+                          >
+                            Daniela Prado
+                          </Typography>
+                        )}
+                      </NavigateAnimation>
+                    </Grid>
+                    <Grid item>
+                      <NavigateAnimation>
+                        <DrawerLogo />
+                      </NavigateAnimation>
+                    </Grid>
                   </Stack>
                 </Grid>
               </Grid>
             </Container>
           </Toolbar>
-        </m.div>
+        </MainAnimation>
       </AppBar>
     </Box>
   );

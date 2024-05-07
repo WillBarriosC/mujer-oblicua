@@ -1,6 +1,9 @@
 import { lazy } from "react";
-import { m } from "framer-motion";
 import { Box, Container, Stack, Typography } from "@mui/material";
+import {
+  SectionAnimation,
+  NavigateAnimation,
+} from "../../components/animation";
 import HTMLFlipBook from "react-pageflip";
 import PdfButton from "../../components/PdfButton";
 import collagePoem1 from "/media/collagePoem1.webp";
@@ -19,12 +22,8 @@ const PageBackCover = lazy(() => import("./components/PageBackCover"));
 export default function MujerOblicuaView() {
   return (
     <>
-      <Container maxWidth={"md"}>
-        <m.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+      <Container sx={{ pt: 18 }} maxWidth={"md"}>
+        <SectionAnimation>
           <Stack spacing={2}>
             <HTMLFlipBook
               width={300}
@@ -273,10 +272,12 @@ export default function MujerOblicuaView() {
               display={"flex"}
               justifyContent={"center"}
             >
-              <PdfButton />
+              <NavigateAnimation>
+                <PdfButton />
+              </NavigateAnimation>
             </Box>
           </Stack>
-        </m.div>
+        </SectionAnimation>
       </Container>
     </>
   );

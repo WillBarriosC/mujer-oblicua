@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Container, Stack, Typography } from "@mui/material";
-import { m } from "framer-motion";
+import { MainAnimation, NavigateAnimation } from "./animation";
 import backgroundImage from "/background/overlay.webp";
 
 const sectionsList = [
-  { text: "Intro", link: "intro" },
-  { text: "Mujer Oblicua", link: "mujer-oblicua" },
-  { text: "Lectura Coral", link: "lectura-coral" },
-  { text: "Olas de Horas", link: "olas-de-horas" },
+  { title: "Intro", path: "/intro" },
+  { title: "Mujer Oblicua", path: "/mujer-oblicua" },
+  { title: "Lectura Coral", path: "/lectura-coral" },
+  { title: "Olas de Horas", path: "/olas-de-horas" },
 ];
 
 export default function SectionLinks() {
@@ -29,30 +29,28 @@ export default function SectionLinks() {
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          {sectionsList.map((text, index) => (
-            <Box key={index}>
-              <m.div
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Typography
-                  variant="h4"
-                  component="div"
-                  sx={[
-                    {
-                      p: 1,
-                      color: "white",
-                      letterSpacing: "3px",
-                      fontWeight: "bold",
-                      cursor: "pointer",
-                    },
-                  ]}
-                  onClick={() => navigate(`/${text.link}`)}
-                >
-                  {text.text}
-                </Typography>
-              </m.div>
+          {sectionsList.map((item, index) => (
+            <Box sx={{ p: 1 }} key={index}>
+              <MainAnimation>
+                <NavigateAnimation>
+                  <Typography
+                    variant="h4"
+                    component="a"
+                    sx={[
+                      {
+                        p: 1,
+                        color: "white",
+                        letterSpacing: "3px",
+                        fontWeight: "bold",
+                        cursor: "pointer",
+                      },
+                    ]}
+                    onClick={() => navigate(item.path)}
+                  >
+                    {item.title}
+                  </Typography>
+                </NavigateAnimation>
+              </MainAnimation>
             </Box>
           ))}
         </Stack>

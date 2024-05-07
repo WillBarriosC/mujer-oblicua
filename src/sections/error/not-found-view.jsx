@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Button, IconButton, Typography } from "@mui/material";
-import logo from "/media/logo.webp";
 import { m } from "framer-motion";
+import Logo from "../../components/Logo";
+import { NavigateAnimation } from "../../components/animation";
 
 // ----------------------------------------------------------------------
 
 export default function NotFoundView() {
   const navigate = useNavigate();
-  const Logo = () => <img src={logo} height={300} />;
   return (
     <m.div
       initial={{ opacity: 0, x: -100 }}
@@ -15,21 +15,26 @@ export default function NotFoundView() {
       transition={{ duration: 0.5 }}
     >
       <Box sx={{ textAlign: "center" }}>
-        <IconButton disableRipple onClick={() => navigate("/")}>
-          <Logo />
-        </IconButton>
-        <Typography variant="h1" sx={{ mb: 3 }}>
+        <NavigateAnimation>
+          <IconButton disableRipple onClick={() => navigate("/")}>
+            <Logo />
+          </IconButton>
+        </NavigateAnimation>
+        <Typography variant="h2" sx={{ mb: 3 }}>
           ¡Pagina no encontrada!
         </Typography>
         <Typography variant="h5" sx={{ mb: 3 }}>
           Lo sentimos, no hemos podido encontrar la página que busca.
         </Typography>
-        <Typography variant="h1" sx={{ mb: 3 }}>
-          😢
-        </Typography>
-        <Button size="large" variant="contained" onClick={() => navigate("/")}>
-          Regresar a home
-        </Button>
+        <NavigateAnimation>
+          <Button
+            size="large"
+            variant="contained"
+            onClick={() => navigate("/")}
+          >
+            Regresar a home
+          </Button>
+        </NavigateAnimation>
       </Box>
     </m.div>
   );
