@@ -5,9 +5,9 @@ import backgroundImage from "/background/overlay.webp";
 
 const sectionsList = [
   { title: "Intro", path: "/intro" },
-  { title: "Mujer Oblicua", path: "/mujer-oblicua" },
+  { title: "Libro Multimedia", path: "/libro-multimedia" },
   { title: "Lectura Coral", path: "/lectura-coral" },
-  { title: "Olas de Horas", path: "/olas-de-horas" },
+  // { title: "Olas de Horas", path: "/olas-de-horas" },
 ];
 
 export default function SectionLinks() {
@@ -22,7 +22,7 @@ export default function SectionLinks() {
         filter: "grayscale(100%)",
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg"> 
         <Stack
           direction={{ xs: "column", md: "row" }}
           spacing={{ xs: 1, md: 2 }}

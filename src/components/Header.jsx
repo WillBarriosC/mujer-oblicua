@@ -63,9 +63,7 @@ export default function Header() {
                       </NavigateAnimation>
                     </Grid>
                     <Grid item>
-                      <NavigateAnimation>
-                        <DrawerLogo />
-                      </NavigateAnimation>
+                      <DrawerLogo />
                     </Grid>
                   </Stack>
                 </Grid>
