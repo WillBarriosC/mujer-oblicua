@@ -1,22 +1,30 @@
 import PropTypes from "prop-types";
-import { Box } from "@mui/material";
+import { Box, GlobalStyles } from "@mui/material";
 import backgroundImage from "/background/overlay.webp";
 
 export default function Content({ children }) {
   return (
-    <Box
-      sx={{
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      {children}
-    </Box>
+    <>
+      <GlobalStyles
+        styles={{
+          body: {
+            overflow: "hidden",
+          },
+        }}
+      />
+      <Box
+        sx={{
+          height: "90vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+        }}
+      >
+        {children}
+      </Box>
+    </>
   );
 }
 

@@ -32,7 +32,7 @@ export const mainRoutes = [
         element: <Intro />,
       },
       {
-        path: "libro-multimedia",
+        path: "libro-expandido",
         element: <MujerOblicuaPage />,
       },
       {

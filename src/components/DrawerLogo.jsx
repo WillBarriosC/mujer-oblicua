@@ -11,13 +11,12 @@ import {
   ListItemText,
   IconButton,
 } from "@mui/material";
-import { m, AnimatePresence } from "framer-motion";
+import { m } from "framer-motion";
 import Logo from "./Logo";
 import HomeIcon from "@mui/icons-material/Home";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
-//import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import ContactsIcon from "@mui/icons-material/Contacts";
@@ -26,18 +25,17 @@ import imgSideBarMenuLogo from "/media/ilustration_3.webp";
 
 const sectionsList = [
   { title: "Intro", path: "/intro", icon: <PlayArrowIcon /> },
-  { title: "Libro Multimedia", path: "/libro-multimedia", icon: <AutoStoriesIcon /> },
-  { title: "Lectura Coral", path: "/lectura-coral", icon: <MenuBookIcon /> },
-  /* {
-    title: "Olas de Horas",
-    path: "/olas-de-horas",
-    icon: <AccessTimeFilledIcon />,
-  }, */
+  {
+    title: "Libro expandido",
+    path: "/libro-expandido",
+    icon: <AutoStoriesIcon />,
+  },
+  { title: "Lectura coral", path: "/lectura-coral", icon: <MenuBookIcon /> },
 ];
 
 const otherList = [
   {
-    title: "Acerca de mi",
+    title: "Acerca de mí",
     path: "/acerca-de-mi",
     icon: <SelfImprovementIcon />,
   },
@@ -60,13 +58,14 @@ export default function DrawerLogo() {
   };
 
   const DrawerList = (
-    <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
-      <Box sx={{ p: 1 }}>
+    <Box sx={{ width: 320 }} role="presentation" onClick={toggleDrawer(false)}>
+      <Box sx={{ p: 3 }} display="flex" justifyContent="center">
         <Logo />
       </Box>
+
       <Divider />
 
-      <List>
+      <List sx={{ p: 0 }}>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -115,30 +114,27 @@ export default function DrawerLogo() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* {isHovered ? sideBarMenuLogo : sideBarLogo} */}
-
-        <AnimatePresence mode="wait">
-          {isHovered ? (
-            <m.div
-              key="menuLogo"
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {sideBarMenuLogo}
-            </m.div>
-          ) : (
-            <m.div
-              key="sideLogo"
-              initial={{ y: -40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 30, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {sideBarLogo}
-            </m.div>
-          )}
-        </AnimatePresence>
+        {isHovered ? (
+          <m.div
+            key="menuLogo"
+            initial={{ y: 0, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.2 }}
+          >
+            {sideBarMenuLogo}
+          </m.div>
+        ) : (
+          <m.div
+            key="sideLogo"
+            initial={{ y: -40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 30, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {sideBarLogo}
+          </m.div>
+        )}
       </IconButton>
 
       <Drawer open={open} onClose={toggleDrawer(false)} anchor={"right"}>

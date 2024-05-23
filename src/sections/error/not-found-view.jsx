@@ -21,7 +21,7 @@ export default function NotFoundView() {
           </IconButton>
         </NavigateAnimation>
         <Typography variant="h2" sx={{ mb: 3 }}>
-          ¡Pagina no encontrada!
+          ¡Página no encontrada!
         </Typography>
         <Typography variant="h5" sx={{ mb: 3 }}>
           Lo sentimos, no hemos podido encontrar la página que busca.
