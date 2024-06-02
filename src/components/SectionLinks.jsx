@@ -32,10 +32,9 @@ export default function SectionLinks() {
                 <NavigateAnimation>
                   <Typography
                     variant="h4"
-                    component="a"
+                    component="p"
                     sx={[
                       {
-                        p: 1,
                         color: "white",
                         letterSpacing: "3px",
                         fontWeight: "bold",

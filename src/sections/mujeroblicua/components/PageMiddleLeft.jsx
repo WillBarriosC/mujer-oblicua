@@ -1,17 +1,16 @@
 import { forwardRef } from "react";
 import { Container } from "@mui/material";
-import pageMiddleLeft from "/media/middle_1.webp";
+import pageMiddleLeft from "/media/middle_1.jpg";
 
 const PageMiddleLeft = forwardRef((props, ref) => {
   return (
     <Container
       ref={ref}
-      data-density="hard"
       sx={{
         backgroundImage: `url(${pageMiddleLeft})`,
         borderRadius: 4,
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center"
       }}
     />
   );

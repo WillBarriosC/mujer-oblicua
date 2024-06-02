@@ -50,7 +50,7 @@ export default function Header() {
                           {matches && (
                             <Typography
                               variant="h5"
-                              component="a"
+                              component="p"
                               sx={{
                                 flexGrow: 1,
                                 fontWeight: "bold",

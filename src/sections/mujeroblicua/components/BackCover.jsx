@@ -1,22 +1,23 @@
 import { forwardRef } from "react";
 import { Container } from "@mui/material";
-import backCoverImage from "/media/back-cover.webp";
+import backCoverImage from "/media/back-cover.jpg";
 
-const PageBackCover = forwardRef((props, ref) => {
+const BackCover = forwardRef((props, ref) => {
   return (
     <Container
       ref={ref}
-      data-density="hard"
       sx={{
+        width: "100%",
+        height: "100vh",
         backgroundImage: `url(${backCoverImage})`,
         borderRadius: 4,
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
       }}
     />
   );
 });
 
-export default PageBackCover;
+export default BackCover;
 
-PageBackCover.displayName = "PageBackCover";
+BackCover.displayName = "BackCover";

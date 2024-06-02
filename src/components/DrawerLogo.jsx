@@ -45,7 +45,7 @@ const otherList = [
 
 const sideBarLogo = <img src={imgSideBarLogo} height={75} alt="sideBarLogo" />;
 const sideBarMenuLogo = (
-  <img src={imgSideBarMenuLogo} height={75} alt="sideBarMenuLogo" />
+  <img src={imgSideBarMenuLogo} width={"100%"} height={75} alt="sideBarMenuLogo" />
 );
 
 export default function DrawerLogo() {

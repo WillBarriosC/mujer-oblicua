@@ -1,10 +1,11 @@
 import { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { Card, CardMedia, Container } from "@mui/material";
+import collage3 from "/media/collage-3.jpg";
 
-const PageCollage = forwardRef((props, ref) => {
+const CollageThree = forwardRef((props, ref) => {
   return (
-    <Container ref={ref} sx={{ background: "#FFFFF5", borderRadius: 4 }}>
+    <Container ref={ref} sx={{ backgroundColor: "white", borderRadius: 4 }}>
       <Card
         sx={{
           position: "absolute",
@@ -13,19 +14,15 @@ const PageCollage = forwardRef((props, ref) => {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <CardMedia
-          component={"img"}
-          sx={{ height: "auto" }}
-          image={props.img}
-        />
+        <CardMedia component={"img"} sx={{ height: "auto" }} image={collage3} />
       </Card>
     </Container>
   );
 });
 
-export default PageCollage;
+export default CollageThree;
 
-PageCollage.displayName = "PageCollage";
-PageCollage.propTypes = {
+CollageThree.displayName = "CollageThree";
+CollageThree.propTypes = {
   img: PropTypes.any,
 };

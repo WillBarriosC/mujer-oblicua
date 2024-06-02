@@ -6,16 +6,21 @@ import {
 } from "../../components/animation";
 import HTMLFlipBook from "react-pageflip";
 import PdfButton from "../../components/PdfButton";
-import collagePoem1 from "/media/collagePoem1.webp";
-import collagePoem2 from "/media/collagePoem2.webp";
-import collagePoem3 from "/media/collagePoem3.webp";
-import videoPoemImg from "/media/videopoem.webp";
 
-const PageFrontCover = lazy(() => import("./components/PageFrontCover"));
-const PageCollage = lazy(() => import("./components/PageCollage"));
+const Cover = lazy(() => import("./components/Cover"));
+const VersoCover = lazy(() => import("./components/VersoCover"));
+const BackCover = lazy(() => import("./components/BackCover"));
+const PoemOne = lazy(() => import("./components/PoemOne"));
+const PoemTwoA = lazy(() => import("./components/PoemTwoA"));
+const PoemTwoB = lazy(() => import("./components/PoemTwoB"));
+const PoemThree = lazy(() => import("./components/PoemThree"));
+const CollageTwo = lazy(() => import("./components/CollageTwo"));
 const PageMiddleLeft = lazy(() => import("./components/PageMiddleLeft"));
 const PageMiddleRight = lazy(() => import("./components/PageMiddleRight"));
-const PageBackCover = lazy(() => import("./components/PageBackCover"));
+const PoemFour = lazy(() => import("./components/PoemFour"));
+const CollageThree = lazy(() => import("./components/CollageThree"));
+const VideoPoem = lazy(() => import("./components/VideoPoem"));
+const VideoPoemImg = lazy(() => import("./components/VideoPoemImg"));
 
 export default function MujerOblicuaView() {
   return (
@@ -25,9 +30,8 @@ export default function MujerOblicuaView() {
           <HTMLFlipBook
             width={520}
             height={750}
-            minWidth={220}
+            minWidth={235}
             minHeight={0}
-
             size="stretch"
             maxShadowOpacity={0}
             showCover={true}
@@ -35,14 +39,20 @@ export default function MujerOblicuaView() {
             showPageCorners={false}
             mobileScrollSupport
           >
-            <PageFrontCover />
-            <PageCollage key={4} img={collagePoem1} />
-            <PageCollage key={6} img={collagePoem2} />
-            <PageMiddleLeft key={7} />
-            <PageMiddleRight key={8} />
-            <PageCollage key={10} img={videoPoemImg} />
-            <PageCollage key={12} img={collagePoem3} />
-            <PageBackCover />
+            <Cover />
+            <VersoCover />
+            <PoemOne />
+            <PoemTwoA />
+            <PoemTwoB />
+            <PoemThree />
+            <CollageTwo />
+            <PageMiddleLeft />
+            <PageMiddleRight />
+            <PoemFour />
+            <CollageThree />
+            <VideoPoem />
+            <VideoPoemImg />
+            <BackCover />
           </HTMLFlipBook>
 
           <Box sx={{ flexGrow: 1 }} display={"flex"} justifyContent={"center"}>

@@ -20,6 +20,7 @@ export default function Content({ children }) {
           justifyContent: "center",
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
+          backgroundPosition: "center"
         }}
       >
         {children}

@@ -8,7 +8,18 @@ import PdfButton from "../../components/PdfButton";
 
 export default function LecturaCoralView() {
   return (
-    <Container maxWidth={"lg"}>
+    <Container
+      sx={{
+        pb: {
+          xs: "50%",
+          sm: 0,
+          md: 0,
+          lg: 0,
+          xl: 0,
+        },
+      }}
+      maxWidth={"lg"}
+    >
       <SectionAnimation>
         <Stack spacing={2}>
           <Paper
@@ -19,8 +30,10 @@ export default function LecturaCoralView() {
               sx={{
                 position: "relative",
                 paddingTop: {
-                  xs: "70%",
-                  md: "55%",
+                  xs: "50%",
+                  sm: "50%",
+                  md: "50%",
+                  lg: "50%",
                 },
               }}
             >
