@@ -23,8 +23,7 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        component="nav"
-        sx={{ p: 2, backgroundColor: "#ffffff" }}
+        sx={{ p: 2, backgroundColor: "#fff" }}
       >
         <AnimatePresence mode="wait">
           <MainAnimation>
@@ -50,7 +49,7 @@ export default function Header() {
                           {matches && (
                             <Typography
                               variant="h5"
-                              component="p"
+                              component="a"
                               sx={{
                                 flexGrow: 1,
                                 fontWeight: "bold",

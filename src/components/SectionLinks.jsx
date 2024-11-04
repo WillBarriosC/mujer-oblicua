@@ -14,7 +14,7 @@ export default function SectionLinks() {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "100vw",
         backgroundImage: `url(${backgroundImage})`,
         filter: "grayscale(100%)",
       }}
@@ -23,8 +23,8 @@ export default function SectionLinks() {
         <Stack
           direction={{ xs: "column", md: "row" }}
           spacing={{ xs: 1, md: 2 }}
-          justifyContent={"space-between"}
-          alignItems={"center"}
+          justifyContent="space-between"
+          alignItems="center"
         >
           {sectionsList.map((item, index) => (
             <Box sx={{ p: 1 }} key={index}>
@@ -32,7 +32,7 @@ export default function SectionLinks() {
                 <NavigateAnimation>
                   <Typography
                     variant="h4"
-                    component="p"
+                    component="a"
                     sx={[
                       {
                         color: "white",

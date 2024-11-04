@@ -55,7 +55,7 @@ export default function MujerOblicuaView() {
             <BackCover />
           </HTMLFlipBook>
 
-          <Box sx={{ flexGrow: 1 }} display={"flex"} justifyContent={"center"}>
+          <Box sx={{ flexGrow: 1 }} display="flex" justifyContent="center">
             <NavigateAnimation>
               <PdfButton />
             </NavigateAnimation>

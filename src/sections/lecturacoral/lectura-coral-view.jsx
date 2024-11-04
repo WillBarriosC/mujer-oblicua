@@ -11,43 +11,27 @@ export default function LecturaCoralView() {
     <Container
       sx={{
         pb: {
-          xs: "50%",
+          xs: "40%",
           sm: 0,
           md: 0,
           lg: 0,
           xl: 0,
         },
       }}
-      maxWidth={"lg"}
     >
       <SectionAnimation>
         <Stack spacing={2}>
           <Paper
             elevation={24}
-            sx={{ p: 2, bgcolor: "black", borderRadius: 4 }}
+            sx={{ p: 2, bgcolor: "black", borderRadius: 2 }}
           >
-            <Box
-              sx={{
-                position: "relative",
-                paddingTop: {
-                  xs: "50%",
-                  sm: "50%",
-                  md: "50%",
-                  lg: "50%",
-                },
-              }}
-            >
+            <Box sx={{ maxWidth: "100%", aspectRatio: 16 / 8 }}>
               <VideoPlayer
                 controls
                 url={"https://www.youtube.com/watch?v=tBM6T5kI1NY"}
                 playing={true}
                 width="100%"
                 height="100%"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                }}
               />
             </Box>
           </Paper>
