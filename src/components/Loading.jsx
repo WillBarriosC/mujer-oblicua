@@ -14,11 +14,11 @@ export default function Loading() {
       } else {
         const diff = Math.random() * 10;
         const diff2 = Math.random() * 10;
-        setProgress(progress + diff);
-        setBuffer(progress + diff + diff2);
+        setProgress((prevProgress) => prevProgress + diff);
+        setBuffer((prevBuffer) => prevBuffer + diff + diff2);
       }
     };
-  });
+  }, [progress]);
 
   useEffect(() => {
     const timer = setInterval(() => {

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { MainAnimation, NavigateAnimation } from "./animation";
 import backgroundImage from "/background/overlay.webp";
+import { useMemo } from "react";
 
 const sectionsList = [
   { title: "Intro", path: "/intro" },
@@ -11,6 +12,32 @@ const sectionsList = [
 
 export default function SectionLinks() {
   const navigate = useNavigate();
+  const renderedSections = useMemo(() => {
+    return sectionsList.map((item, index) => (
+      <Box sx={{ p: 1 }} key={index}>
+        <MainAnimation>
+          <NavigateAnimation>
+            <Typography
+              variant="h4"
+              component="a"
+              sx={[
+                {
+                  color: "white",
+                  letterSpacing: "3px",
+                  fontWeight: "bold",
+                  cursor: "pointer",
+                },
+              ]}
+              onClick={() => navigate(item.path)}
+            >
+              {item.title}
+            </Typography>
+          </NavigateAnimation>
+        </MainAnimation>
+      </Box>
+    ));
+  }, [navigate]);
+
   return (
     <Box
       sx={{
@@ -26,29 +53,7 @@ export default function SectionLinks() {
           justifyContent="space-between"
           alignItems="center"
         >
-          {sectionsList.map((item, index) => (
-            <Box sx={{ p: 1 }} key={index}>
-              <MainAnimation>
-                <NavigateAnimation>
-                  <Typography
-                    variant="h4"
-                    component="a"
-                    sx={[
-                      {
-                        color: "white",
-                        letterSpacing: "3px",
-                        fontWeight: "bold",
-                        cursor: "pointer",
-                      },
-                    ]}
-                    onClick={() => navigate(item.path)}
-                  >
-                    {item.title}
-                  </Typography>
-                </NavigateAnimation>
-              </MainAnimation>
-            </Box>
-          ))}
+          {renderedSections}
         </Stack>
       </Container>
     </Box>

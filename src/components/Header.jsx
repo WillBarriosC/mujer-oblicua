@@ -14,17 +14,22 @@ import { MainAnimation, NavigateAnimation } from "./animation";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Logo from "./Logo";
 import DrawerLogo from "./DrawerLogo";
+import { memo, useCallback } from "react";
 
-export default function Header() {
+const Header = memo(() => {
   const matches = useMediaQuery("(min-width:720px)");
   const navigate = useNavigate();
 
+  const handleNavigate = useCallback(
+    (path) => {
+      navigate(path);
+    },
+    [navigate]
+  );
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        sx={{ p: 2, backgroundColor: "#fff" }}
-      >
+      <AppBar position="static" sx={{ p: 2, backgroundColor: "#fff" }}>
         <AnimatePresence mode="wait">
           <MainAnimation>
             <Toolbar>
@@ -37,7 +42,10 @@ export default function Header() {
                 >
                   <Grid item>
                     <NavigateAnimation>
-                      <IconButton disableRipple onClick={() => navigate("/")}>
+                      <IconButton
+                        disableRipple
+                        onClick={() => handleNavigate("/")}
+                      >
                         <Logo />
                       </IconButton>
                     </NavigateAnimation>
@@ -56,7 +64,7 @@ export default function Header() {
                                 color: "black",
                                 cursor: "pointer",
                               }}
-                              onClick={() => navigate("/acerca-de-mi")}
+                              onClick={() => handleNavigate("/acerca-de-mi")}
                             >
                               Daniela Prado
                             </Typography>
@@ -76,4 +84,8 @@ export default function Header() {
       </AppBar>
     </Box>
   );
-}
+});
+
+Header.displayName = "Header";
+
+export default Header;
