@@ -24,44 +24,49 @@ const VideoPoemImg = lazy(() => import("./components/VideoPoemImg"));
 
 export default function MujerOblicuaView() {
   return (
-    <Container maxWidth={"md"}>
-      <SectionAnimation>
-        <Stack spacing={2}>
-          <HTMLFlipBook
-            width={520}
-            height={750}
-            minWidth={235}
-            minHeight={0}
-            size="stretch"
-            maxShadowOpacity={0}
-            showCover={true}
-            flippingTime={900}
-            showPageCorners={false}
-            mobileScrollSupport
-          >
-            <Cover />
-            <VersoCover />
-            <PoemOne />
-            <PoemTwoA />
-            <PoemTwoB />
-            <PoemThree />
-            <CollageTwo />
-            <PageMiddleLeft />
-            <PageMiddleRight />
-            <PoemFour />
-            <CollageThree />
-            <VideoPoem />
-            <VideoPoemImg />
-            <BackCover />
-          </HTMLFlipBook>
-
-          <Box sx={{ flexGrow: 1 }} display="flex" justifyContent="center">
-            <NavigateAnimation>
-              <PdfButton />
-            </NavigateAnimation>
-          </Box>
-        </Stack>
-      </SectionAnimation>
-    </Container>
+    <>
+      <Container maxWidth={"md"}>
+        <SectionAnimation>
+          <Stack spacing={2}>
+            <HTMLFlipBook
+              width={520}
+              height={750}
+              minWidth={235}
+              minHeight={0}
+              size="stretch"
+              maxShadowOpacity={0}
+              showCover={true}
+              flippingTime={900}
+              mobileScrollSupport
+              disableFlipByClick
+              showPageCorners={false}
+              startZIndex={100}
+            >
+              <Cover />
+              <VersoCover />
+              <PoemOne />
+              <PoemTwoA />
+              <PoemTwoB />
+              <PoemThree />
+              <CollageTwo />
+              <PageMiddleLeft />
+              <PageMiddleRight />
+              <PoemFour />
+              <CollageThree />
+              <VideoPoem />
+              <VideoPoemImg />
+              <BackCover />
+            </HTMLFlipBook>
+            <Container>
+              <Box sx={{ flexGrow: 1 }} display="flex" justifyContent="center">
+                <NavigateAnimation>
+                  <PdfButton />
+                </NavigateAnimation>
+              </Box>
+            </Container>
+          </Stack>
+        </SectionAnimation>
+      </Container>
+    </>
   );
 }
