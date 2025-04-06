@@ -18,15 +18,13 @@ const CollageThree = forwardRef((props, ref) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
+          width: "90%",
+          objectFit: "cover",
         }}
         onClick={handleOpen}
       >
         <CardActionArea>
-          <CardMedia
-            component={"img"}
-            sx={{ height: "auto" }}
-            image={collage3}
-          />
+          <CardMedia component={"img"} image={collage3} alt="Niña nido" />
         </CardActionArea>
       </Card>
 

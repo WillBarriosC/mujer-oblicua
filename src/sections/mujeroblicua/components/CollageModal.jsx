@@ -1,22 +1,24 @@
-import { CardMedia, Dialog, IconButton } from "@mui/material";
+import { Box, CardMedia, Dialog, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import PropTypes from "prop-types";
 
 const CollageModal = ({ open, onClose, image }) => (
-  <Dialog open={open} onClose={onClose}>
-    <CardMedia component="img" sx={{ height: "auto" }} image={image} />
-    <IconButton
-      aria-label="close"
-      onClick={onClose}
-      sx={(theme) => ({
-        position: "absolute",
-        right: 8,
-        top: 8,
-        color: theme.palette.grey[500],
-      })}
-    >
-      <CloseIcon />
-    </IconButton>
+  <Dialog maxWidth="sm" open={open} onClose={onClose}>
+    <Box sx={{ p: 2, bgcolor: "black" }}>
+      <CardMedia component="img" sx={{ borderRadius: 1 }} image={image} />
+      <IconButton
+        aria-label="close"
+        onClick={onClose}
+        sx={(theme) => ({
+          position: "absolute",
+          right: 18,
+          top: 18,
+          color: theme.palette.grey[500],
+        })}
+      >
+        <CloseIcon />
+      </IconButton>
+    </Box>
   </Dialog>
 );
 
