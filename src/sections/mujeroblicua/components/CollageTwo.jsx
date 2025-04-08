@@ -2,6 +2,7 @@ import { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Card, CardActionArea, CardMedia, Container } from "@mui/material";
 import collage2 from "/media/collage-2.jpg";
+import bgCollage2 from "/media/bg-collage-2.jpg";
 import CollageModal from "./CollageModal";
 import videoCollage2_1 from "/media/videocollage-2_1.webm";
 import videoCollage2_2 from "/media/videocollage-2_2.webm";
@@ -37,7 +38,7 @@ const CollageTwo = forwardRef((props, ref) => {
       <CollageModal
         open={open}
         onClose={handleClose}
-        image={collage2}
+        image={bgCollage2}
         overlayVideos={[
           {
             src: videoCollage2_1,
@@ -48,6 +49,7 @@ const CollageTwo = forwardRef((props, ref) => {
             triggerWidth: "300px",
             triggerHeight: "350px",
             showTrigger: false,
+            loopDuration: 4000,
           },
           {
             src: videoCollage2_2,
@@ -58,6 +60,7 @@ const CollageTwo = forwardRef((props, ref) => {
             triggerWidth: "240px",
             triggerHeight: "260px",
             showTrigger: false,
+            loopDuration: 88000,
           },
           {
             src: videoCollage2_3,
@@ -68,6 +71,7 @@ const CollageTwo = forwardRef((props, ref) => {
             triggerWidth: "82px",
             triggerHeight: "120px",
             showTrigger: false,
+            loopDuration: 36000,
           },
         ]}
       />

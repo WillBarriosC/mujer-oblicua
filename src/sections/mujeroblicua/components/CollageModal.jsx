@@ -1,4 +1,4 @@
-import { Box, Dialog, IconButton } from "@mui/material";
+import { Box, Dialog, Fade, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import PropTypes from "prop-types";
 import { useRef } from "react";
@@ -10,12 +10,23 @@ const CollageModal = ({ open, onClose, image, overlayVideos = [] }) => {
   const handleClick = (index, videoDelay = 1000, audioDelay = 1000) => {
     const video = videoRefs.current[index];
     const audio = audioRefs.current[index];
+    const { loopDuration } = overlayVideos[index];
 
     if (video) {
       setTimeout(() => {
+        video.loop = true;
         video.play();
+  
+        if (loopDuration) {
+          setTimeout(() => {
+            video.pause();
+            video.currentTime = 0;
+            video.loop = false;
+          }, loopDuration);
+        }
       }, videoDelay);
     }
+
 
     if (audio) {
       setTimeout(() => {
@@ -25,7 +36,7 @@ const CollageModal = ({ open, onClose, image, overlayVideos = [] }) => {
   };
 
   return (
-    <Dialog maxWidth="sm" open={open} onClose={onClose}>
+    <Dialog maxWidth="sm" open={open} onClose={onClose} TransitionComponent={Fade} transitionDuration={400}>
       <Box sx={{ p: 2, bgcolor: "black", position: "relative" }}>
         <Box
           component="img"

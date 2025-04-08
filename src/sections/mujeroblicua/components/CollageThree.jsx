@@ -2,6 +2,7 @@ import { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Card, CardActionArea, CardMedia, Container } from "@mui/material";
 import collage3 from "/media/collage-3.jpg";
+import bgCollage3 from "/media/bg-collage-3.jpg";
 import CollageModal from "./CollageModal";
 import videoCollage3_1 from "/media/videocollage-3_1.webm";
 import videoCollage3_2 from "/media/videocollage-3_2.webm";
@@ -39,7 +40,7 @@ const CollageThree = forwardRef((props, ref) => {
       <CollageModal
         open={open}
         onClose={handleClose}
-        image={collage3}
+        image={bgCollage3}
         overlayVideos={[
           {
             src: videoCollage3_1,
@@ -51,6 +52,7 @@ const CollageThree = forwardRef((props, ref) => {
             triggerHeight: "84px",
             showTrigger: false,
             audioDelay: 6000,
+            loopDuration: 6000,
           },
           {
             src: videoCollage3_2,
@@ -61,6 +63,7 @@ const CollageThree = forwardRef((props, ref) => {
             triggerWidth: "100px",
             triggerHeight: "330px",
             showTrigger: false,
+            loopDuration: 28000,
           },
           {
             src: videoCollage3_3,
@@ -71,6 +74,7 @@ const CollageThree = forwardRef((props, ref) => {
             triggerWidth: "180px",
             triggerHeight: "276px",
             showTrigger: false,
+            loopDuration: 13000,
           },
           {
             src: videoCollage3_4,
@@ -80,7 +84,8 @@ const CollageThree = forwardRef((props, ref) => {
             triggerLeft: "44%",
             triggerWidth: "140px",
             triggerHeight: "140px",
-            showTrigger: false,
+            showTrigger: true,
+            loopDuration: 5000,
           },
         ]}
       />

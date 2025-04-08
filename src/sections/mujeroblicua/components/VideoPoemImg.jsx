@@ -1,8 +1,8 @@
 import { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
-import { Card, CardMedia, Container } from "@mui/material";
+import { Card, CardMedia, Container, CardActionArea } from "@mui/material";
 import videoPoemImg from "/media/videopoem-img.jpg";
-import CollageModal from "./CollageModal";
+import VideoModal from "./VideoModal";
 
 const VideoPoemImg = forwardRef((props, ref) => {
   const [open, setOpen] = useState(false);
@@ -22,10 +22,12 @@ const VideoPoemImg = forwardRef((props, ref) => {
         }}
         onClick={handleOpen}
       >
-        <CardMedia component={"img"} image={videoPoemImg} alt="Video Poema" />
+        <CardActionArea>
+          <CardMedia component={"img"} image={videoPoemImg} alt="Video Poema" />
+        </CardActionArea>
       </Card>
 
-      <CollageModal open={open} onClose={handleClose} image={videoPoemImg} />
+      <VideoModal open={open} onClose={handleClose} />
     </Container>
   );
 });
