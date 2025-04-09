@@ -45,7 +45,7 @@ export default function IntroView() {
             sx={{
               fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
               lineHeight: 1.6,
-              fontFamily: "serif",
+              fontFamily: "SourceSerifPro",
               textAlign: "justify",
             }}
           >
@@ -56,8 +56,19 @@ export default function IntroView() {
             traumas ocasionados por la violencia contra la mujer y la
             construcción constante de la identidad a través de la historia
             personal y colectiva.
-            <br />
-            <br />
+          </Typography>
+          <br />
+          <Typography
+            variant="body1"
+            color="black"
+            sx={{
+              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+              lineHeight: 1.6,
+              fontFamily: "SourceSerifPro",
+              textAlign: "justify",
+              textIndent: "2.5em",
+            }}
+          >
             Posteriormente, los poemas fueron publicados en una plaquette que
             fue presentada en el 2021 en una lectura performática con las
             escritoras y artistas colombianas: Yirama Castaño, Carolina López,
@@ -67,42 +78,41 @@ export default function IntroView() {
             mujeres, las posibilidades del cuerpo y la voz a través de la
             lectura performática de poesía, las posibilidades expandidas del
             libro.
-            <br />
-            <br />
-            <Typography
-              variant="body1"
-              color="black"
-              sx={{
-                fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-                lineHeight: 1.6,
-                fontFamily: "serif",
-                textAlign: "justify",
-                textIndent: "2.5em",
-              }}
-            >
-              Es a través de este archivo y registro de distintas expresiones
-              derivadas del mismo producto, como Mujer oblicua se despliega y
-              encuentra la necesidad de convertirse en un libro digital
-              expandido que requiere un espacio más amplio en donde albergar
-              todo lo que se deriva de él y aún no ha sido publicado.
-            </Typography>
-            <br />
-            <Typography
-              variant="body1"
-              color="black"
-              sx={{
-                fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-                lineHeight: 1.6,
-                fontFamily: "serif",
-                textAlign: "justify",
-                textIndent: "2.5em",
-              }}
-            >
-              <em>Mujer oblicua</em> se transforma en lo que podrá encontrar
-              aquí, un sitio web de poesía hipermedia en donde la autora espera
-              se conmueva a través de todas las palabras, videos, sonidos,
-              animaciones y sensaciones que se exploran aquí.
-            </Typography>
+          </Typography>
+          <br />
+          <Typography
+            variant="body1"
+            color="black"
+            sx={{
+              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+              lineHeight: 1.6,
+              fontFamily: "SourceSerifPro",
+              textAlign: "justify",
+              textIndent: "2.5em",
+            }}
+          >
+            Es a través de este archivo y registro de distintas expresiones
+            derivadas del mismo producto, como Mujer oblicua se despliega y
+            encuentra la necesidad de convertirse en un libro digital expandido
+            que requiere un espacio más amplio en donde albergar todo lo que se
+            deriva de él y aún no ha sido publicado.
+          </Typography>
+          <br />
+          <Typography
+            variant="body1"
+            color="black"
+            sx={{
+              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+              lineHeight: 1.6,
+              fontFamily: "SourceSerifPro",
+              textAlign: "justify",
+              textIndent: "2.5em",
+            }}
+          >
+            <em>Mujer oblicua</em> se transforma en lo que podrá encontrar aquí,
+            un sitio web de poesía hipermedia en donde la autora espera se
+            conmueva a través de todas las palabras, videos, sonidos,
+            animaciones y sensaciones que se exploran aquí.
           </Typography>
         </Paper>
       </SectionAnimation>

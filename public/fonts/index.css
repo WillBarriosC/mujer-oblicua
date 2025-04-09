@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "SourceSerifPro";
+  font-weight: normal;
+  font-style: normal;
+  src: local("SourceSerifPro"),
+    url("SourceSerifPro-Regular.ttf") format("truetype");
+}

@@ -19,7 +19,6 @@ export default function SectionLinks() {
           <NavigateAnimation>
             <Typography
               variant="h4"
-              component="a"
               sx={[
                 {
                   color: "white",

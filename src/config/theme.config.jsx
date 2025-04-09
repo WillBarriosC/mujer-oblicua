@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import "../../public/fonts/index.css";
 
 const theme = createTheme({
   palette: {
@@ -8,7 +9,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'League Spartan', sans-serif",
+    fontFamily: "'League Spartan', sans-serif, SourceSerifPro",
   },
 });
 

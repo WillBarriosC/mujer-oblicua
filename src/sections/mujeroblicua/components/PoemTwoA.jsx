@@ -7,7 +7,7 @@ const PoemTwoA = forwardRef((props, ref) => (
     ref={ref}
     sx={{
       width: "100%",
-      height: "100vh",
+      height: "100%",
       backgroundImage: `url(${poemTwoA})`,
       borderRadius: 4,
       backgroundSize: "cover",
