@@ -1,8 +1,10 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import { mainRoutes } from "./main";
-import NotFoundRoute from "./notFound";
+import { notFound } from "./notFound";
 
 export const router = createBrowserRouter([
   ...mainRoutes,
-  NotFoundRoute(),
+   ...notFound,
+
+  { path: "*", element: <Navigate to="/404" replace/> },
 ]);

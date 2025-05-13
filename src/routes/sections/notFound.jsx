@@ -1,15 +1,22 @@
+/* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
 import Compact from "../../layout/compact";
+import { Outlet } from "react-router-dom";
 
 const NotFound = lazy(() => import("../../pages/404"));
 
-const NotFoundRoute = () => ({
-  path: "*",
-  element: (
-    <Compact>
-      <NotFound />
-    </Compact>
-  ),
-});
-
-export default NotFoundRoute;
+export const notFound = [
+  {
+    element: (
+      <Compact>
+        <Outlet />
+      </Compact>
+    ),
+    children: [
+      {
+        path: "404",
+        element: <NotFound />,
+      },
+    ],
+  },
+];
