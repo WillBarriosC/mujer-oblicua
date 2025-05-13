@@ -27,7 +27,10 @@ export default function SectionLinks() {
                   cursor: "pointer",
                 },
               ]}
-              onClick={() => navigate(item.path)}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(item.path);
+              }}
             >
               {item.title}
             </Typography>
@@ -42,6 +45,8 @@ export default function SectionLinks() {
       sx={{
         width: "100vw",
         backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         filter: "grayscale(100%)",
       }}
     >

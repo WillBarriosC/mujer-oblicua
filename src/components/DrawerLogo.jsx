@@ -64,11 +64,11 @@ const DrawerList = memo(({ navigate, toggleDrawer }) => (
 
     <List sx={{ p: 0 }}>
       <ListItem disablePadding>
-        <ListItemButton>
+        <ListItemButton onClick={() => navigate("/")}>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText primary={"Home"} onClick={() => navigate("/")} />
+          <ListItemText primary={"Home"} />
         </ListItemButton>
       </ListItem>
 
@@ -76,12 +76,9 @@ const DrawerList = memo(({ navigate, toggleDrawer }) => (
 
       {sectionsList.map((item, index) => (
         <ListItem key={index} disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => navigate(item.path)}>
             <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText
-              primary={item.title}
-              onClick={() => navigate(item.path)}
-            />
+            <ListItemText primary={item.title} />
           </ListItemButton>
         </ListItem>
       ))}
@@ -90,12 +87,9 @@ const DrawerList = memo(({ navigate, toggleDrawer }) => (
 
       {otherList.map((item, index) => (
         <ListItem key={index} disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => navigate(item.path)}>
             <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText
-              primary={item.title}
-              onClick={() => navigate(item.path)}
-            />
+            <ListItemText primary={item.title} />
           </ListItemButton>
         </ListItem>
       ))}

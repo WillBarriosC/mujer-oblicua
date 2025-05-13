@@ -3,11 +3,17 @@ import { Box, Button, IconButton, Typography } from "@mui/material";
 import { m } from "framer-motion";
 import Logo from "../../components/Logo";
 import { NavigateAnimation } from "../../components/animation";
-
-// ----------------------------------------------------------------------
+import { useCallback } from "react";
 
 export default function NotFoundView() {
   const navigate = useNavigate();
+
+  const handleNavigateHome = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
+  const textStyle = { mb: 3 };
+
   return (
     <m.div
       initial={{ opacity: 0, x: -100 }}
@@ -16,22 +22,18 @@ export default function NotFoundView() {
     >
       <Box sx={{ textAlign: "center" }}>
         <NavigateAnimation>
-          <IconButton disableRipple onClick={() => navigate("/")}>
+          <IconButton disableRipple onClick={handleNavigateHome}>
             <Logo />
           </IconButton>
         </NavigateAnimation>
-        <Typography variant="h2" sx={{ mb: 3 }}>
+        <Typography variant="h2" sx={textStyle}>
           ¡Página no encontrada!
         </Typography>
-        <Typography variant="h5" sx={{ mb: 3 }}>
+        <Typography variant="h5" sx={textStyle}>
           Lo sentimos, no hemos podido encontrar la página que busca.
         </Typography>
         <NavigateAnimation>
-          <Button
-            size="large"
-            variant="contained"
-            onClick={() => navigate("/")}
-          >
+          <Button size="large" variant="contained" onClick={handleNavigateHome}>
             Regresar a home
           </Button>
         </NavigateAnimation>

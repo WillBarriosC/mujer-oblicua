@@ -1,29 +1,25 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, LinearProgress, Typography } from "@mui/material";
 
 export default function Loading() {
   const [progress, setProgress] = useState(0);
   const [buffer, setBuffer] = useState(10);
 
-  const progressRef = useRef(() => {});
-  useEffect(() => {
-    progressRef.current = () => {
-      if (progress > 100) {
-        setProgress(0);
-        setBuffer(10);
-      } else {
-        const diff = Math.random() * 10;
-        const diff2 = Math.random() * 10;
-        setProgress((prevProgress) => prevProgress + diff);
-        setBuffer((prevBuffer) => prevBuffer + diff + diff2);
-      }
-    };
-  }, [progress]);
+  const updateProgress = () => {
+    setProgress((prevProgress) => {
+      const diff = Math.random() * 10;
+      return prevProgress + diff > 100 ? 0 : prevProgress + diff;
+    });
+
+    setBuffer((prevBuffer) => {
+      const diff = Math.random() * 10;
+      const diff2 = Math.random() * 10;
+      return prevBuffer + diff + diff2;
+    });
+  };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      progressRef.current();
-    }, 200);
+    const timer = setInterval(updateProgress, 200);
 
     return () => {
       clearInterval(timer);
@@ -41,11 +37,7 @@ export default function Loading() {
       >
         Loading...
       </Typography>
-      <LinearProgress
-        variant="indeterminate"
-        value={progress}
-        valueBuffer={buffer}
-      />
+      <LinearProgress variant="buffer" value={progress} valueBuffer={buffer} />
     </Box>
   );
 }

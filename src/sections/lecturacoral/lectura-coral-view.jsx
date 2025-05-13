@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Container,
-  Dialog,
   Paper,
   Stack,
   Typography,
@@ -41,22 +40,19 @@ const PdfButtonSection = memo(() => (
 PdfButtonSection.displayName = "PdfButtonSection";
 
 export default function LecturaCoralView() {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [showInitialContent, setShowInitialContent] = useState(true);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleCloseModal = () => {
-    setModalOpen(false);
+  const handleContinue = () => {
+    setShowInitialContent(false);
   };
+
   return (
     <>
-      <Dialog
-        open={modalOpen}
-        onClose={handleCloseModal}
-        maxWidth="lg"
-        hideBackdrop
-        PaperProps={{
-          sx: {
+      {showInitialContent ? (
+        <Box
+          sx={{
             px: { xs: 2, sm: 3, md: 4 },
             py: { xs: 2.5, sm: 3.5 },
             borderRadius: 4,
@@ -64,63 +60,65 @@ export default function LecturaCoralView() {
             backdropFilter: "blur(400px)",
             WebkitBackdropFilter: "blur(500px)",
             boxShadow: "none",
-          },
-        }}
-      >
-        <SectionAnimation>
-          <Box mb={2}>
+            maxWidth: "lg",
+            mx: "auto",
+            mt: 4,
+          }}
+        >
+          <SectionAnimation>
+            <Box mb={2}>
+              <Typography
+                variant={isMobile ? "h5" : "h4"}
+                component="h1"
+                gutterBottom
+                fontWeight="bold"
+                color="black"
+                sx={{
+                  textAlign: isMobile ? "center" : "left",
+                }}
+              >
+                Lectura coral
+              </Typography>
+            </Box>
             <Typography
-              variant={isMobile ? "h5" : "h4"}
-              component="h1"
-              gutterBottom
-              fontWeight="bold"
+              variant="body1"
               color="black"
               sx={{
-                textAlign: isMobile ? "center" : "left",
+                fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+                lineHeight: 1.6,
+                fontFamily: "SourceSerifPro",
+                textAlign: "justify",
               }}
             >
-              Lectura coral
+              Aquí encontrarás la presentación de la plaquette Mujer oblicua.
+              Ésta fue presentada en el 2021 en una lectura performática con las
+              escritoras y artistas colombianas: Yirama Castaño, Carolina López,
+              Alexandra Espinosa, Laura Jaramillo, Lina Botero, Cristina
+              Villota, con ambientación sonora por Sara Fernández; en esta
+              lectura, que quedó en video, se puede ver el poder de la lectura
+              colectiva entre mujeres, las posibilidades del cuerpo y la voz a
+              través de la lectura performática de poesía, las posibilidades
+              expandidas del libro.
+              <br />
+              <br />
+              Esta grabación es una invitación a que explores, disfrutes y
+              compartas esta forma de leer y acuerpar estos poemas.
             </Typography>
-          </Box>
-          <Typography
-            variant="body1"
-            color="black"
-            sx={{
-              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-              lineHeight: 1.6,
-              fontFamily: "SourceSerifPro",
-              textAlign: "justify",
-            }}
-          >
-            Aquí encontrarás la presentación de la plaquette Mujer oblicua. Ésta
-            fue presentada en el 2021 en una lectura performática con las
-            escritoras y artistas colombianas: Yirama Castaño, Carolina López,
-            Alexandra Espinosa, Laura Jaramillo, Lina Botero, Cristina Villota,
-            con ambientación sonora por Sara Fernández; en esta lectura, que
-            quedó en video, se puede ver el poder de la lectura colectiva entre
-            mujeres, las posibilidades del cuerpo y la voz a través de la
-            lectura performática de poesía, las posibilidades expandidas del
-            libro.
             <br />
-            <br />
-            Esta grabación es una invitación a que explores, disfrutes y
-            compartas esta forma de leer y acuerpar estos poemas.
-          </Typography>
-          <br />
-          <Button
-            variant="contained"
-            onClick={handleCloseModal}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              mx: "auto",
-            }}
-          >
-            Continuar
-          </Button>
-        </SectionAnimation>
-      </Dialog>
-      {!modalOpen && (
+            <Button
+              variant="contained"
+              onClick={handleContinue}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                mx: "auto",
+              }}
+            >
+              Continuar
+            </Button>
+          </SectionAnimation>
+        </Box>
+      ) : (
         <Container sx={{ pb: { xs: "40%", sm: 0 } }}>
           <SectionAnimation>
             <Stack spacing={2}>

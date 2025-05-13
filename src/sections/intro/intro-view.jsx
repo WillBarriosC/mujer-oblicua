@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Container,
   Typography,
@@ -8,23 +9,31 @@ import {
 } from "@mui/material";
 import { SectionAnimation } from "../../components/animation";
 
-export default function IntroView() {
+const IntroView = React.memo(() => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const paperStyles = {
+    px: { xs: 2, sm: 3, md: 4 },
+    py: { xs: 2.5, sm: 3.5 },
+    borderRadius: 4,
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
+    backdropFilter: "blur(400px)",
+    WebkitBackdropFilter: "blur(500px)",
+  };
+
+  const textStyles = {
+    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+    lineHeight: 1.6,
+    fontFamily: "SourceSerifPro",
+    textAlign: "justify",
+    textIndent: "2.5em",
+  };
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 3, sm: 4, md: 6 } }}>
       <SectionAnimation>
-        <Paper
-          sx={{
-            px: { xs: 2, sm: 3, md: 4 },
-            py: { xs: 2.5, sm: 3.5 },
-            borderRadius: 4,
-            backgroundColor: "rgba(255, 255, 255, 0.4)",
-            backdropFilter: "blur(400px)",
-            WebkitBackdropFilter: "blur(500px)",
-          }}
-        >
+        <Paper sx={paperStyles}>
           <Box mb={2}>
             <Typography
               variant={isMobile ? "h5" : "h4"}
@@ -32,9 +41,7 @@ export default function IntroView() {
               gutterBottom
               fontWeight="bold"
               color="black"
-              sx={{
-                textAlign: isMobile ? "center" : "left",
-              }}
+              sx={{ textAlign: isMobile ? "center" : "left" }}
             >
               Hola
             </Typography>
@@ -42,12 +49,7 @@ export default function IntroView() {
           <Typography
             variant="body1"
             color="black"
-            sx={{
-              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-              lineHeight: 1.6,
-              fontFamily: "SourceSerifPro",
-              textAlign: "justify",
-            }}
+            sx={{ ...textStyles, textIndent: "0" }}
           >
             Mujer oblicua fue un poemario escrito en el 2019, para acceder al
             grado de Licenciatura en Literatura en la Universidad del Valle de
@@ -58,17 +60,7 @@ export default function IntroView() {
             personal y colectiva.
           </Typography>
           <br />
-          <Typography
-            variant="body1"
-            color="black"
-            sx={{
-              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-              lineHeight: 1.6,
-              fontFamily: "SourceSerifPro",
-              textAlign: "justify",
-              textIndent: "2.5em",
-            }}
-          >
+          <Typography variant="body1" color="black" sx={textStyles}>
             Posteriormente, los poemas fueron publicados en una plaquette que
             fue presentada en el 2021 en una lectura performática con las
             escritoras y artistas colombianas: Yirama Castaño, Carolina López,
@@ -80,17 +72,7 @@ export default function IntroView() {
             libro.
           </Typography>
           <br />
-          <Typography
-            variant="body1"
-            color="black"
-            sx={{
-              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-              lineHeight: 1.6,
-              fontFamily: "SourceSerifPro",
-              textAlign: "justify",
-              textIndent: "2.5em",
-            }}
-          >
+          <Typography variant="body1" color="black" sx={textStyles}>
             Es a través de este archivo y registro de distintas expresiones
             derivadas del mismo producto, como Mujer oblicua se despliega y
             encuentra la necesidad de convertirse en un libro digital expandido
@@ -98,17 +80,7 @@ export default function IntroView() {
             deriva de él y aún no ha sido publicado.
           </Typography>
           <br />
-          <Typography
-            variant="body1"
-            color="black"
-            sx={{
-              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-              lineHeight: 1.6,
-              fontFamily: "SourceSerifPro",
-              textAlign: "justify",
-              textIndent: "2.5em",
-            }}
-          >
+          <Typography variant="body1" color="black" sx={textStyles}>
             <em>Mujer oblicua</em> se transforma en lo que podrá encontrar aquí,
             un sitio web de poesía hipermedia en donde la autora espera se
             conmueva a través de todas las palabras, videos, sonidos,
@@ -118,4 +90,8 @@ export default function IntroView() {
       </SectionAnimation>
     </Container>
   );
-}
+});
+
+IntroView.displayName = "IntroView";
+
+export default IntroView;
