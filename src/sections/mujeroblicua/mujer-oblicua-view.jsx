@@ -7,6 +7,7 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
+  Paper,
 } from "@mui/material";
 import {
   SectionAnimation,
@@ -55,69 +56,68 @@ export default function MujerOblicuaView() {
     setShowInitialContent(false);
   };
 
+  const paperStyles = {
+    px: { xs: 2, sm: 3, md: 4 },
+    py: { xs: 2.5, sm: 3.5 },
+    borderRadius: 4,
+    backgroundColor: "rgba(255, 255, 255, 0.6)",
+  };
+
+  const textStyles = {
+    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+    lineHeight: 1.6,
+    fontFamily: "SourceSerifPro",
+    textAlign: "justify",
+    textIndent: "2.5em",
+  };
+
   return (
     <>
       {showInitialContent ? (
-        <Box
-          sx={{
-            px: { xs: 2, sm: 3, md: 4 },
-            py: { xs: 2.5, sm: 3.5 },
-            borderRadius: 4,
-            backgroundColor: "rgba(255, 255, 255, 0.4)",
-            backdropFilter: "blur(400px)",
-            WebkitBackdropFilter: "blur(500px)",
-            boxShadow: "none",
-            maxWidth: "lg",
-            mx: "auto",
-            mt: 4,
-          }}
-        >
-          <SectionAnimation>
-            <Box mb={2}>
+        <Container maxWidth="lg" sx={{ py: { xs: 3, sm: 4, md: 6 } }}>
+          <SectionAnimation key={"initial-content"}>
+            <Paper sx={paperStyles}>
+              <Box mb={2}>
+                <Typography
+                  variant={isMobile ? "h5" : "h4"}
+                  component="h1"
+                  gutterBottom
+                  fontWeight="bold"
+                  color="black"
+                  sx={{
+                    textAlign: isMobile ? "center" : "left",
+                  }}
+                >
+                  Libro expandido
+                </Typography>
+              </Box>
               <Typography
-                variant={isMobile ? "h5" : "h4"}
-                component="h1"
-                gutterBottom
-                fontWeight="bold"
+                variant="body1"
                 color="black"
+                sx={{ ...textStyles, textIndent: "0" }}
+              >
+                Aquí podrás explorar el libro interactivo, entre estas páginas
+                encontrarás: un videopoema, collages animados y algunos de los
+                poemas, que podrás descargar en el botón de PDF
+              </Typography>
+              <br />
+              <Button
+                variant="contained"
+                onClick={handleContinue}
                 sx={{
-                  textAlign: isMobile ? "center" : "left",
+                  display: "flex",
+                  justifyContent: "center",
+                  mx: "auto",
                 }}
               >
-                Libro expandido
-              </Typography>
-            </Box>
-            <Typography
-              variant="body1"
-              color="black"
-              sx={{
-                fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-                lineHeight: 1.6,
-                fontFamily: "SourceSerifPro",
-                textAlign: "justify",
-              }}
-            >
-              Aquí podrás explorar el libro interactivo, entre estas páginas
-              encontrarás: un videopoema, collages animados y algunos de los
-              poemas, que podrás descargar en el botón de PDF
-            </Typography>
-            <br />
-            <Button
-              variant="contained"
-              onClick={handleContinue}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                mx: "auto",
-              }}
-            >
-              Continuar
-            </Button>
+                Continuar
+              </Button>
+            </Paper>
           </SectionAnimation>
-        </Box>
+        </Container>
       ) : (
         <Container maxWidth="md" disableGutters sx={{ overflow: "hidden" }}>
-          <SectionAnimation>
+          <SectionAnimation key={"book-content"}>
             <Stack spacing={2} sx={{ overflow: "hidden" }}>
               <HTMLFlipBook
                 width={520}

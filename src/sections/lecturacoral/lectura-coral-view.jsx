@@ -48,79 +48,79 @@ export default function LecturaCoralView() {
     setShowInitialContent(false);
   };
 
+  const paperStyles = {
+    px: { xs: 2, sm: 3, md: 4 },
+    py: { xs: 2.5, sm: 3.5 },
+    borderRadius: 4,
+    backgroundColor: "rgba(255, 255, 255, 0.6)",
+  };
+
+  const textStyles = {
+    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+    lineHeight: 1.6,
+    fontFamily: "SourceSerifPro",
+    textAlign: "justify",
+    textIndent: "2.5em",
+  };
+
   return (
     <>
       {showInitialContent ? (
-        <Box
-          sx={{
-            px: { xs: 2, sm: 3, md: 4 },
-            py: { xs: 2.5, sm: 3.5 },
-            borderRadius: 4,
-            backgroundColor: "rgba(255, 255, 255, 0.4)",
-            backdropFilter: "blur(400px)",
-            WebkitBackdropFilter: "blur(500px)",
-            boxShadow: "none",
-            maxWidth: "lg",
-            mx: "auto",
-            mt: 4,
-          }}
-        >
-          <SectionAnimation>
-            <Box mb={2}>
+        <Container maxWidth="lg" sx={{ py: { xs: 3, sm: 4, md: 6 } }}>
+          <SectionAnimation key={"book-intro"}>
+            <Paper sx={paperStyles}>
+              <Box mb={2}>
+                <Typography
+                  variant={isMobile ? "h5" : "h4"}
+                  component="h1"
+                  gutterBottom
+                  fontWeight="bold"
+                  color="black"
+                  sx={{
+                    textAlign: isMobile ? "center" : "left",
+                  }}
+                >
+                  Lectura coral
+                </Typography>
+              </Box>
               <Typography
-                variant={isMobile ? "h5" : "h4"}
-                component="h1"
-                gutterBottom
-                fontWeight="bold"
+                variant="body1"
                 color="black"
+                sx={{ ...textStyles, textIndent: "0" }}
+              >
+                Aquí encontrarás la presentación de la plaquette Mujer oblicua.
+                Ésta fue presentada en el 2021 en una lectura performática con
+                las escritoras y artistas colombianas: Yirama Castaño, Carolina
+                López, Alexandra Espinosa, Laura Jaramillo, Lina Botero,
+                Cristina Villota, con ambientación sonora por Sara Fernández; en
+                esta lectura, que quedó en video, se puede ver el poder de la
+                lectura colectiva entre mujeres, las posibilidades del cuerpo y
+                la voz a través de la lectura performática de poesía, las
+                posibilidades expandidas del libro.
+              </Typography>
+                <br />
+              <Typography variant="body1" color="black" sx={textStyles}>
+                Esta grabación es una invitación a que explores, disfrutes y
+                compartas esta forma de leer y acuerpar estos poemas.
+              </Typography>
+              <br />
+              <Button
+                variant="contained"
+                onClick={handleContinue}  
                 sx={{
-                  textAlign: isMobile ? "center" : "left",
+                  display: "flex",
+                  justifyContent: "center",
+                  mx: "auto",
                 }}
               >
-                Lectura coral
-              </Typography>
-            </Box>
-            <Typography
-              variant="body1"
-              color="black"
-              sx={{
-                fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
-                lineHeight: 1.6,
-                fontFamily: "SourceSerifPro",
-                textAlign: "justify",
-              }}
-            >
-              Aquí encontrarás la presentación de la plaquette Mujer oblicua.
-              Ésta fue presentada en el 2021 en una lectura performática con las
-              escritoras y artistas colombianas: Yirama Castaño, Carolina López,
-              Alexandra Espinosa, Laura Jaramillo, Lina Botero, Cristina
-              Villota, con ambientación sonora por Sara Fernández; en esta
-              lectura, que quedó en video, se puede ver el poder de la lectura
-              colectiva entre mujeres, las posibilidades del cuerpo y la voz a
-              través de la lectura performática de poesía, las posibilidades
-              expandidas del libro.
-              <br />
-              <br />
-              Esta grabación es una invitación a que explores, disfrutes y
-              compartas esta forma de leer y acuerpar estos poemas.
-            </Typography>
-            <br />
-            <Button
-              variant="contained"
-              onClick={handleContinue}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                mx: "auto",
-              }}
-            >
-              Continuar
-            </Button>
+                Continuar
+              </Button>
+            </Paper>
           </SectionAnimation>
-        </Box>
+        </Container>
       ) : (
         <Container sx={{ pb: { xs: "40%", sm: 0 } }}>
-          <SectionAnimation>
+          <SectionAnimation key={"book-video"}>
             <Stack spacing={2}>
               <VideoSection />
               <PdfButtonSection />

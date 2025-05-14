@@ -84,7 +84,7 @@ const CollageThree = forwardRef((props, ref) => {
             triggerLeft: "44%",
             triggerWidth: "140px",
             triggerHeight: "140px",
-            showTrigger: true,
+            showTrigger: false,
             loopDuration: 5000,
           },
         ]}

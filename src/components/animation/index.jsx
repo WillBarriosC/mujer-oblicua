@@ -6,18 +6,18 @@ import { Box } from "@mui/material";
 const mainAnimationConfig = {
   initial: { opacity: 0, x: -100 },
   animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.5 },
+  transition: { duration: 0.35, ease: "easeInOut" },
 };
 
 const navigateAnimationConfig = {
   whileHover: { scale: 1.1 },
-  transition: { type: "spring", stiffness: 800, damping: 12 },
+  transition: { type: "spring", stiffness: 1000, damping: 15 },
 };
 
 const sectionAnimationConfig = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 0.5 },
+  initial: { opacity: 0, scale: 0.95 },
+  animate: { opacity: 1, scale: 1 },
+  transition: { duration: 0.15, ease: "easeInOut" },
 };
 
 export const MainAnimation = React.memo(({ children }) => {

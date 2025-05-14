@@ -17,9 +17,7 @@ const IntroView = React.memo(() => {
     px: { xs: 2, sm: 3, md: 4 },
     py: { xs: 2.5, sm: 3.5 },
     borderRadius: 4,
-    backgroundColor: "rgba(255, 255, 255, 0.4)",
-    backdropFilter: "blur(400px)",
-    WebkitBackdropFilter: "blur(500px)",
+    backgroundColor: "rgba(255, 255, 255, 0.6)",
   };
 
   const textStyles = {
