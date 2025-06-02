@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { MainAnimation, NavigateAnimation } from "./animation";
-import backgroundImage from "/background/overlay.webp";
+import backgroundImage from "/background/overlay.jpg";
 import { useMemo } from "react";
 
 const sectionsList = [

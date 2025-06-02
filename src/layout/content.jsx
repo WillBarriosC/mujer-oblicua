@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Box } from "@mui/material";
-import backgroundImage from "/background/overlay.webp";
+import backgroundImage from "/background/overlay.jpg";
 import { memo } from "react";
 
 const Content = memo(({ children }) => (

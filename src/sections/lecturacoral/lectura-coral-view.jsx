@@ -60,7 +60,6 @@ export default function LecturaCoralView() {
     lineHeight: 1.6,
     fontFamily: "SourceSerifPro",
     textAlign: "justify",
-    textIndent: "2.5em",
   };
 
   return (
@@ -83,30 +82,40 @@ export default function LecturaCoralView() {
                   Lectura coral
                 </Typography>
               </Box>
-              <Typography
-                variant="body1"
-                color="black"
-                sx={{ ...textStyles, textIndent: "0" }}
-              >
+              <Typography variant="body1" color="black" sx={{ ...textStyles }}>
                 Aquí encontrarás la presentación de la plaquette Mujer oblicua.
                 Ésta fue presentada en el 2021 en una lectura performática con
-                las escritoras y artistas colombianas: Yirama Castaño, Carolina
-                López, Alexandra Espinosa, Laura Jaramillo, Lina Botero,
-                Cristina Villota, con ambientación sonora por Sara Fernández; en
-                esta lectura, que quedó en video, se puede ver el poder de la
-                lectura colectiva entre mujeres, las posibilidades del cuerpo y
-                la voz a través de la lectura performática de poesía, las
-                posibilidades expandidas del libro.
+                las escritoras y artistas colombianas: Lucille Dupin, Yirama
+                Castaño, Carolina Anfibia, Alexandra Espinosa, Laura Jaramillo,
+                Lina Botero, Cristina Villota, con ambientación sonora por Sara
+                Fernández; en esta lectura, que quedó en grabada en video, se
+                puede ver el poder de la lectura colectiva entre mujeres, las
+                posibilidades del cuerpo y la voz a través de la lectura
+                performática de poesía, las posibilidades expandidas del libro.
               </Typography>
-                <br />
+              <br />
+              <Typography variant="body1" color="black" sx={textStyles}>
+                Esta lectura coral está inspirada en la experiencia performática
+                de la Acción Veladas, colectiva conformada por Carolina Anfibia,
+                Paola Correa, Filippa Prietov, Hanna Thiesing, Jamie Angie
+                Howard Bernal, Kro Sans Persépolis, Ima Torres, María Inés
+                Rodríguez y Angie Andrea Arango. En pandemia, fui invitada por
+                Carolina Anfibia y Giovana Suárez a un ejercicio de lectura para
+                la liberación de textos de archivo (escritos aproximadamente
+                hace un siglo) por colombianas que contribuyeron a distintos
+                procesos de emancipación y reivindicación de derechos de las
+                mujeres en Colombia, recuperados en la tesis de doctorado de
+                Giovana Suárez.
+              </Typography>
+              <br />
               <Typography variant="body1" color="black" sx={textStyles}>
                 Esta grabación es una invitación a que explores, disfrutes y
-                compartas esta forma de leer y acuerpar estos poemas.
+                compartas esta forma de leer y acuerpar estos poemas..
               </Typography>
               <br />
               <Button
                 variant="contained"
-                onClick={handleContinue}  
+                onClick={handleContinue}
                 sx={{
                   display: "flex",
                   justifyContent: "center",

@@ -97,8 +97,8 @@ export default function MujerOblicuaView() {
                 sx={{ ...textStyles, textIndent: "0" }}
               >
                 Aquí podrás explorar el libro interactivo, entre estas páginas
-                encontrarás: un videopoema, collages animados y algunos de los
-                poemas, que podrás descargar en el botón de PDF
+                encontrarás dos videopoemas, collages animados y algunos de los
+                poemas que podrás descargar en el botón de PDF.
               </Typography>
               <br />
               <Button

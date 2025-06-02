@@ -1,5 +1,5 @@
 import { memo } from "react";
-import pdfButton from "/media/button-pdf.webp";
+import pdfButton from "/media/button-pdf.jpg";
 
 const linkAttributes = {
   href: "/docs/Mujer-oblicua.pdf",
