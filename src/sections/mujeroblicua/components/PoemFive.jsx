@@ -1,14 +1,14 @@
 import { forwardRef } from "react";
 import { Container } from "@mui/material";
-import videoPoem from "/media/videopoem.jpg";
+import poemFive from "/media/poem-five.jpg";
 
-const VideoPoem = forwardRef((props, ref) => (
+const PoemFive = forwardRef((props, ref) => (
   <Container
     ref={ref}
     sx={{
       width: "100%",
       height: "100%",
-      backgroundImage: `url(${videoPoem})`,
+      backgroundImage: `url(${poemFive})`,
       borderRadius: 4,
       backgroundSize: "cover",
       backgroundPosition: "center",
@@ -16,6 +16,6 @@ const VideoPoem = forwardRef((props, ref) => (
   />
 ));
 
-export default VideoPoem;
+export default PoemFive;
 
-VideoPoem.displayName = "VideoPoem";
+PoemFive.displayName = "PoemFour";

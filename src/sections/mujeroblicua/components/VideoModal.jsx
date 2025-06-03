@@ -9,7 +9,7 @@ const VideoModal = ({ open, onClose }) => {
         <Box sx={{ width: "100%", aspectRatio: "16/9" }}>
           <VideoPlayer
             controls
-            url={"https://www.youtube.com/watch?v=2g6rkRHQm_s"}
+            url={"https://www.youtube.com/watch?v=vdVUYptvRgE"}
             playing={true}
             width="100%"
             height="100%"

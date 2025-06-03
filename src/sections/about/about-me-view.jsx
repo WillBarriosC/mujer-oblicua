@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { SectionAnimation } from "../../components/animation";
 import { useNavigate } from "react-router-dom";
-import videoPoem from "/media/videopoem.jpg";
+import danielaBio from "/media/danielaBio.jpg";
 
 const AboutMeView = React.memo(() => {
   const theme = useTheme();
@@ -63,20 +63,6 @@ const AboutMeView = React.memo(() => {
           </Box>
           <Box>
             <Grid container spacing={2} alignItems="start">
-              <Grid item xs={12} md={5}>
-                <Box
-                  component="img"
-                  src={videoPoem}
-                  alt="Daniela Prado"
-                  sx={{
-                    width: "100%",
-                    borderRadius: 2,
-                    boxShadow: 2,
-                    objectFit: "cover",
-                    maxHeight: 340,
-                  }}
-                />
-              </Grid>
               <Grid item xs={12} md={7}>
                 <Typography
                   variant="body1"
@@ -154,6 +140,25 @@ const AboutMeView = React.memo(() => {
                     https://linktr.ee/danielaprse
                   </a>
                 </Typography>
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <Box
+                  component="img"
+                  src={danielaBio}
+                  alt="Daniela Prado"
+                  sx={{
+                    width: "100%",
+                    objectFit: "cover",
+                    maxHeight: 550,
+                    maskImage: `linear-gradient(to bottom, black 95%, transparent),
+                    linear-gradient(to top, black 95%, transparent),
+                    linear-gradient(to right, black 95%, transparent),
+                    linear-gradient(to left, black 95%, transparent)
+                    `,
+                    maskComposite: "intersect",
+                    WebkitMaskComposite: "destination-in",
+                  }}
+                />
               </Grid>
             </Grid>
           </Box>

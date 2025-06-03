@@ -26,9 +26,11 @@ import PageMiddleLeft from "./components/PageMiddleLeft";
 import PageMiddleRight from "./components/PageMiddleRight";
 import PoemFour from "./components/PoemFour";
 import CollageThree from "./components/CollageThree";
-import VideoPoem from "./components/VideoPoem";
 import VideoPoemImg from "./components/VideoPoemImg";
 import BackCover from "./components/BackCover";
+import PoemFive from "./components/PoemFive";
+import VideoPoemImgTwo from "./components/VideoPoemImgTwo";
+import PoemSix from "./components/PoemSix";
 
 const pages = [
   Cover,
@@ -42,7 +44,9 @@ const pages = [
   PageMiddleRight,
   PoemFour,
   CollageThree,
-  VideoPoem,
+  PoemFive,
+  VideoPoemImgTwo,
+  PoemSix,
   VideoPoemImg,
   BackCover,
 ];

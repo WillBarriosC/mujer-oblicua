@@ -85,27 +85,99 @@ export default function LecturaCoralView() {
               <Typography variant="body1" color="black" sx={{ ...textStyles }}>
                 Aquí encontrarás la presentación de la plaquette Mujer oblicua.
                 Ésta fue presentada en el 2021 en una lectura performática con
-                las escritoras y artistas colombianas: Lucille Dupin, Yirama
-                Castaño, Carolina Anfibia, Alexandra Espinosa, Laura Jaramillo,
-                Lina Botero, Cristina Villota, con ambientación sonora por Sara
-                Fernández; en esta lectura, que quedó en grabada en video, se
-                puede ver el poder de la lectura colectiva entre mujeres, las
+                las escritoras y artistas colombianas:{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Lucille Dupin
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Yirama Castaño
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Carolina Anfibia
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Alexandra Espinosa
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Laura Jaramillo
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Lina Botero
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Cristina Villota
+                </Box>
+                , con ambientación sonora por{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Sara Fernández
+                </Box>
+                ; en esta lectura, que quedó en grabada en video, se puede ver
+                el poder de la lectura colectiva entre mujeres, las
                 posibilidades del cuerpo y la voz a través de la lectura
                 performática de poesía, las posibilidades expandidas del libro.
               </Typography>
               <br />
               <Typography variant="body1" color="black" sx={textStyles}>
                 Esta lectura coral está inspirada en la experiencia performática
-                de la Acción Veladas, colectiva conformada por Carolina Anfibia,
-                Paola Correa, Filippa Prietov, Hanna Thiesing, Jamie Angie
-                Howard Bernal, Kro Sans Persépolis, Ima Torres, María Inés
-                Rodríguez y Angie Andrea Arango. En pandemia, fui invitada por
-                Carolina Anfibia y Giovana Suárez a un ejercicio de lectura para
-                la liberación de textos de archivo (escritos aproximadamente
-                hace un siglo) por colombianas que contribuyeron a distintos
-                procesos de emancipación y reivindicación de derechos de las
-                mujeres en Colombia, recuperados en la tesis de doctorado de
-                Giovana Suárez.
+                de la Acción Veladas, colectiva conformada por{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Carolina Anfibia
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Paola Correa
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Filippa Prietov
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Hanna Thiesing
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Jamie Angie Howard Bernal
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Kro Sans Persépolis
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Ima Torres
+                </Box>
+                ,{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  María Inés Rodríguez
+                </Box>{" "}
+                y{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Angie Andrea Arango
+                </Box>
+                . En pandemia, fui invitada por{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Carolina Anfibia
+                </Box>{" "}
+                y{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Giovana Suárez
+                </Box>{" "}
+                a un ejercicio de lectura para la liberación de textos de
+                archivo (escritos aproximadamente hace un siglo) por colombianas
+                que contribuyeron a distintos procesos de emancipación y
+                reivindicación de derechos de las mujeres en Colombia,
+                recuperados en la tesis de doctorado de{" "}
+                <Box component="span" sx={{ fontWeight: 600 }}>
+                  Giovana Suárez
+                </Box>
+                .
               </Typography>
               <br />
               <Typography variant="body1" color="black" sx={textStyles}>

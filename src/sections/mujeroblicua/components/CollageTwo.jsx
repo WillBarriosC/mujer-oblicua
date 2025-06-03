@@ -4,7 +4,7 @@ import { Card, CardActionArea, CardMedia, Container } from "@mui/material";
 import collage2 from "/media/collage-2.jpg";
 import bgCollage2 from "/media/bg-collage-2.jpg";
 import CollageModal from "./CollageModal";
-import videoCollage2_1 from "/media/videocollage-2_1.webm";
+import videoCollage2_1 from "/media/videocollage-2_1.mp4";
 import videoCollage2_2 from "/media/videocollage-2_2.webm";
 import videoCollage2_3 from "/media/videocollage-2_3.webm";
 import soundCollage2_1 from "/media/soundcollage-2_1.mp3";
@@ -49,7 +49,7 @@ const CollageTwo = forwardRef((props, ref) => {
             triggerWidth: "300px",
             triggerHeight: "350px",
             showTrigger: false,
-            loopDuration: 4000,
+            loopDuration: 9000,
           },
           {
             src: videoCollage2_2,
