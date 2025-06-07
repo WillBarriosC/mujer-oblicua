@@ -3,21 +3,22 @@ import {
   AppBar,
   Box,
   Container,
-  Grid,
   IconButton,
   Stack,
   Toolbar,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { AnimatePresence } from "framer-motion";
 import { MainAnimation, NavigateAnimation } from "./animation";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Logo from "./Logo";
 import DrawerLogo from "./DrawerLogo";
 import { memo, useCallback, useMemo } from "react";
 
 const Header = memo(() => {
-  const matches = useMediaQuery("(min-width:720px)");
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
   const navigate = useNavigate();
 
   const handleNavigate = useCallback(
@@ -29,7 +30,15 @@ const Header = memo(() => {
 
   const logoButton = useMemo(
     () => (
-      <IconButton disableRipple onClick={() => handleNavigate("/")}>
+      <IconButton
+        disableRipple
+        onClick={() => handleNavigate("/")}
+        sx={{
+          p: { xs: 0.5, sm: 1 },
+          "&:hover": { background: "transparent" },
+        }}
+        aria-label="Ir a inicio"
+      >
         <Logo />
       </IconButton>
     ),
@@ -38,52 +47,55 @@ const Header = memo(() => {
 
   const typographyStyles = useMemo(
     () => ({
-      flexGrow: 1,
       fontWeight: "bold",
       color: "black",
       cursor: "pointer",
+      fontSize: { xs: "1.1rem", md: "1.5rem" },
+      ml: { xs: 1, md: 2 },
+      textDecoration: "none",
+      "&:hover": { color: theme.palette.primary.main },
     }),
-    []
+    [theme]
   );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ p: 2, backgroundColor: "#fff" }}>
+      <AppBar
+        position="static"
+        sx={{
+          p: { xs: 1, sm: 2 },
+          backgroundColor: "#fff",
+          boxShadow: 1,
+        }}
+      >
         <AnimatePresence mode="wait">
           <MainAnimation>
             <Toolbar>
               <Container maxWidth="false">
-                <Grid
-                  container
-                  direction={"row"}
-                  justifyContent={"space-between"}
-                  alignItems={"center"}
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  width="100%"
+                  spacing={2}
                 >
-                  <Grid item>
-                    <NavigateAnimation>{logoButton}</NavigateAnimation>
-                  </Grid>
-                  <Grid item>
-                    <Stack direction={"row"} alignItems={"center"} spacing={5}>
-                      {matches && (
-                        <Grid item>
-                          <NavigateAnimation>
-                            <Typography
-                              variant="h5"
-                              component="a"
-                              sx={typographyStyles}
-                              onClick={() => handleNavigate("/acerca-de-mi")}
-                            >
-                              Daniela Prado
-                            </Typography>
-                          </NavigateAnimation>
-                        </Grid>
-                      )}
-                      <Grid item>
-                        <DrawerLogo />
-                      </Grid>
-                    </Stack>
-                  </Grid>
-                </Grid>
+                  <NavigateAnimation>{logoButton}</NavigateAnimation>
+                  <Stack direction="row" alignItems="center" spacing={{ xs: 1, sm: 3 }}>
+                    {isMdUp && (
+                      <NavigateAnimation>
+                        <Typography
+                          variant="h5"
+                          component="a"
+                          sx={typographyStyles}
+                          onClick={() => handleNavigate("/acerca-de-mi")}
+                        >
+                          Daniela Prado
+                        </Typography>
+                      </NavigateAnimation>
+                    )}
+                    <DrawerLogo />
+                  </Stack>
+                </Stack>
               </Container>
             </Toolbar>
           </MainAnimation>

@@ -38,7 +38,14 @@ const AboutMeView = React.memo(() => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: { xs: 3, sm: 4, md: 6 } }}>
+    <Container
+      maxWidth="lg"
+      sx={{
+        py: { xs: 3, sm: 4, md: 6 },
+        overflowY: { xs: "auto", sm: "visible" },
+        maxHeight: { xs: "100dvh", sm: "none" },
+      }}
+    >
       <SectionAnimation>
         <Paper sx={paperStyles}>
           <Box mb={2}>
@@ -52,8 +59,8 @@ const AboutMeView = React.memo(() => {
               Daniela Prado
             </Typography>
             <Typography
-              variant={isMobile ? "subtitle1" : "subtitle1"}
-              component="subtitle1"
+              variant="subtitle1"
+              component="div"
               gutterBottom
               color="black"
               sx={{ textAlign: isMobile ? "center" : "left" }}
@@ -62,8 +69,51 @@ const AboutMeView = React.memo(() => {
             </Typography>
           </Box>
           <Box>
-            <Grid container spacing={2} alignItems="start">
-              <Grid item xs={12} md={7}>
+            <Grid
+              container
+              spacing={2}
+              alignItems="start"
+              direction="row"
+            >
+              <Grid
+                item
+                xs={12}
+                md={5}
+                order={{ xs: 1, md: 2 }}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Box
+                  component="img"
+                  src={danielaBio}
+                  alt="Daniela Prado"
+                  sx={{
+                    width: "100%",
+                    objectFit: "cover",
+                    maxHeight: { xs: 320, sm: 400, md: 550 },
+                    borderRadius: 3,
+                    boxShadow: 2,
+                    ...(theme.breakpoints.up("md") && {
+                      maskImage: `linear-gradient(to bottom, black 95%, transparent),
+                        linear-gradient(to top, black 95%, transparent),
+                        linear-gradient(to right, black 95%, transparent),
+                        linear-gradient(to left, black 95%, transparent)`,
+                      maskComposite: "intersect",
+                      WebkitMaskComposite: "destination-in",
+                    }),
+                  }}
+                />
+              </Grid>
+              {/* Texto después en móviles */}
+              <Grid
+                item
+                xs={12}
+                md={7}
+                order={{ xs: 2, md: 1 }}
+              >
                 <Typography
                   variant="body1"
                   color="black"
@@ -105,20 +155,20 @@ const AboutMeView = React.memo(() => {
                 >
                   <b>Publicaciones</b>
                   <br />
-                  <b>Espacios Habitables</b> - Sic Semper. 2019. Libro de poesía
+                  <b>Espacios habitables</b> - Sic Semper. 2019. Libro de poesía
                   expandida con exploración de video poesía y poesía
                   musicalizada.
                   <br />
                   <b>Ya no soy esta carne trémula</b> – Proteo Editorial. 2020.
                   Libro objeto de collage/poesía
                   <br />
-                  <b>Mujer Oblicua</b> – Tristes Trópicos Editorial. 2021.
+                  <b>Mujer oblicua</b> – Tristes Trópicos Editorial. 2021.
                   <br />
                   <b>¿Por qué lo bello resulta doloroso?</b> – Editorial
                   Uninorte. 2023. Antología de poesía expandida: collage/poesía,
                   poesía musicalizada, video poesía.
                   <br />
-                  <b>Mujer Oblicua</b> – Poemario web hipermedia. Tristes
+                  <b>Mujer oblicua</b> – Poemario web hipermedia. Tristes
                   Trópicos Editorial.2025
                 </Typography>
                 <br />
@@ -140,25 +190,6 @@ const AboutMeView = React.memo(() => {
                     https://linktr.ee/danielaprse
                   </a>
                 </Typography>
-              </Grid>
-              <Grid item xs={12} md={5}>
-                <Box
-                  component="img"
-                  src={danielaBio}
-                  alt="Daniela Prado"
-                  sx={{
-                    width: "100%",
-                    objectFit: "cover",
-                    maxHeight: 550,
-                    maskImage: `linear-gradient(to bottom, black 95%, transparent),
-                    linear-gradient(to top, black 95%, transparent),
-                    linear-gradient(to right, black 95%, transparent),
-                    linear-gradient(to left, black 95%, transparent)
-                    `,
-                    maskComposite: "intersect",
-                    WebkitMaskComposite: "destination-in",
-                  }}
-                />
               </Grid>
             </Grid>
           </Box>

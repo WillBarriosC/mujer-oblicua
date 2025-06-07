@@ -65,7 +65,17 @@ export default function LecturaCoralView() {
   return (
     <>
       {showInitialContent ? (
-        <Container maxWidth="lg" sx={{ py: { xs: 3, sm: 4, md: 6 } }}>
+        <Container
+          maxWidth="lg"
+          sx={{
+            py: { xs: 3, sm: 4, md: 6 },
+            overflowY: { xs: "auto", sm: "visible" },
+            maxHeight: { xs: "100dvh", sm: "none" },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <SectionAnimation key={"book-intro"}>
             <Paper sx={paperStyles}>
               <Box mb={2}>
@@ -122,7 +132,7 @@ export default function LecturaCoralView() {
                 posibilidades del cuerpo y la voz a través de la lectura
                 performática de poesía, las posibilidades expandidas del libro.
               </Typography>
-              <br />
+              <Box sx={{ height: { xs: 12, sm: 16 } }} />
               <Typography variant="body1" color="black" sx={textStyles}>
                 Esta lectura coral está inspirada en la experiencia performática
                 de la Acción Veladas, colectiva conformada por{" "}
@@ -179,12 +189,12 @@ export default function LecturaCoralView() {
                 </Box>
                 .
               </Typography>
-              <br />
+              <Box sx={{ height: { xs: 12, sm: 16 } }} />
               <Typography variant="body1" color="black" sx={textStyles}>
                 Esta grabación es una invitación a que explores, disfrutes y
-                compartas esta forma de leer y acuerpar estos poemas..
+                compartas esta forma de leer y acuerpar estos poemas.
               </Typography>
-              <br />
+              <Box sx={{ height: { xs: 12, sm: 16 } }} />
               <Button
                 variant="contained"
                 onClick={handleContinue}
@@ -200,7 +210,11 @@ export default function LecturaCoralView() {
           </SectionAnimation>
         </Container>
       ) : (
-        <Container sx={{ pb: { xs: "40%", sm: 0 } }}>
+        <Container
+          sx={{
+            pb: { xs: "40%", sm: 0 },
+          }}
+        >
           <SectionAnimation key={"book-video"}>
             <Stack spacing={2}>
               <VideoSection />

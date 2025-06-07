@@ -19,14 +19,13 @@ export default function SectionLinks() {
           <NavigateAnimation>
             <Typography
               variant="h4"
-              sx={[
-                {
-                  color: "white",
-                  letterSpacing: "3px",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                },
-              ]}
+              sx={{
+                color: "white",
+                letterSpacing: "3px",
+                fontWeight: "bold",
+                cursor: "pointer",
+                textAlign: "center",
+              }}
               onClick={(e) => {
                 e.preventDefault();
                 navigate(item.path);
@@ -48,6 +47,8 @@ export default function SectionLinks() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         filter: "grayscale(100%)",
+        display: "flex",
+        alignItems: "center",
       }}
     >
       <Container maxWidth="lg">
@@ -56,6 +57,7 @@ export default function SectionLinks() {
           spacing={{ xs: 1, md: 2 }}
           justifyContent="space-between"
           alignItems="center"
+          width="100%"
         >
           {renderedSections}
         </Stack>

@@ -2,7 +2,15 @@ import { memo } from "react";
 import logo from "/media/logo.jpg";
 
 const Logo = () => {
-  return <img src={logo} height={75} alt="logo" />;
+  return (
+    <img
+      src={logo}
+      alt="logo"
+      height={75}
+      loading="lazy"
+      style={{ display: "block"}}
+    />
+  );
 };
 
 const MemoizedLogo = memo(Logo);

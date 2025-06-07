@@ -1,43 +1,89 @@
-import { Box, Dialog, Fade, IconButton } from "@mui/material";
+import {
+  Box,
+  Dialog,
+  Fade,
+  IconButton,
+  Snackbar,
+  Alert as MuiAlert,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import PropTypes from "prop-types";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { SectionAnimation } from "../../../components/animation";
 
-const CollageModal = ({ open, onClose, image, overlayVideos = [] }) => {
-  const videoRefs = useRef([]);
-  const audioRefs = useRef([]);
+const CollageModal = ({
+  open,
+  onClose,
+  image,
+  overlayVideos = [],
+  showAlertMessage = true,
+}) => {
+  const [showAlert, setShowAlert] = useState(false);
+  const overlayRefs = useRef([]);
 
-  const handleClick = (index, videoDelay = 1000, audioDelay = 1000) => {
-    const video = videoRefs.current[index];
-    const audio = audioRefs.current[index];
-    const { loopDuration } = overlayVideos[index];
+  useEffect(() => {
+    if (open && showAlertMessage) setShowAlert(true);
+  }, [open, showAlertMessage]);
 
-    if (video) {
+  const handleClick = (index) => {
+    const { videoRef, audioRef } = overlayRefs.current[index] || {};
+    const { loopDuration, videoDelay = 1000, audioDelay = 1000 } = overlayVideos[index] || {};
+
+    if (videoRef) {
       setTimeout(() => {
-        video.loop = true;
-        video.play();
-  
+        videoRef.loop = true;
+        videoRef.play();
         if (loopDuration) {
           setTimeout(() => {
-            video.pause();
-            video.currentTime = 0;
-            video.loop = false;
+            videoRef.pause();
+            videoRef.currentTime = 0;
+            videoRef.loop = false;
           }, loopDuration);
         }
       }, videoDelay);
     }
-
-
-    if (audio) {
+    if (audioRef) {
       setTimeout(() => {
-        audio.play();
+        audioRef.play();
       }, audioDelay);
     }
   };
 
   return (
-    <Dialog maxWidth="sm" open={open} onClose={onClose} TransitionComponent={Fade} transitionDuration={400}>
+    <Dialog
+      maxWidth="sm"
+      open={open}
+      onClose={onClose}
+      TransitionComponent={Fade}
+      transitionDuration={400}
+    >
       <Box sx={{ p: 2, bgcolor: "black", position: "relative" }}>
+        <SectionAnimation>
+          {showAlertMessage && (
+            <Snackbar
+              open={showAlert}
+              autoHideDuration={10000}
+              onClose={() => setShowAlert(false)}
+              anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            >
+              <MuiAlert
+                elevation={15}
+                variant="contained"
+                onClose={() => setShowAlert(false)}
+                severity="info"
+                sx={{
+                  fontSize: "1.1rem",
+                  textAlign: "center",
+                  bgcolor: "rgba(0, 0, 0)",
+                  color: "white",
+                  mt: 15,
+                }}
+              >
+                Haz click en las imágenes para descrubrir sus mensajes expandidos.
+              </MuiAlert>
+            </Snackbar>
+          )}
+        </SectionAnimation>
         <Box
           component="img"
           src={image}
@@ -55,13 +101,15 @@ const CollageModal = ({ open, onClose, image, overlayVideos = [] }) => {
               height: "100%",
               borderRadius: 1,
               overflow: "hidden",
-              pointerEvents: "none",
               zIndex: video.zIndex,
+              pointerEvents: "none",
             }}
-            onClick={() => handleClick(index, video.delay || 500)}
           >
             <video
-              ref={(el) => (videoRefs.current[index] = el)}
+              ref={(el) => {
+                if (!overlayRefs.current[index]) overlayRefs.current[index] = {};
+                overlayRefs.current[index].videoRef = el;
+              }}
               src={video.src}
               style={{
                 width: "100%",
@@ -71,36 +119,35 @@ const CollageModal = ({ open, onClose, image, overlayVideos = [] }) => {
               muted
             />
             <audio
-              ref={(el) => (audioRefs.current[index] = el)}
+              ref={(el) => {
+                if (!overlayRefs.current[index]) overlayRefs.current[index] = {};
+                overlayRefs.current[index].audioRef = el;
+              }}
               src={video.sound}
             />
+            {/* Trigger area */}
+            <Box
+              onClick={() => handleClick(index)}
+              sx={{
+                position: "absolute",
+                width: video.triggerWidth,
+                height: video.triggerHeight,
+                top: video.triggerTop,
+                left: video.triggerLeft,
+                backgroundColor: video.showTrigger
+                  ? "rgba(255,255,255,0.5)"
+                  : "transparent",
+                borderRadius: "50%",
+                zIndex: 9999,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: video.showTrigger ? "0 0 5px white" : "none",
+                pointerEvents: "auto",
+              }}
+            />
           </Box>
-        ))}
-
-        {overlayVideos.map((video, index) => (
-          <Box
-            key={`trigger-${index}`}
-            onClick={() =>
-              handleClick(index, video.delay || 1000, video.audioDelay || 1000)
-            }
-            sx={{
-              position: "absolute",
-              width: video.triggerWidth,
-              height: video.triggerHeight,
-              top: video.triggerTop,
-              left: video.triggerLeft,
-              backgroundColor: video.showTrigger
-                ? "rgba(255,255,255,0.5)"
-                : "transparent",
-              borderRadius: "50%",
-              zIndex: 9999,
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: video.showTrigger ? "0 0 5px white" : "none",
-            }}
-          ></Box>
         ))}
 
         <IconButton
@@ -121,11 +168,12 @@ const CollageModal = ({ open, onClose, image, overlayVideos = [] }) => {
   );
 };
 
-export default CollageModal;
-
 CollageModal.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   image: PropTypes.string.isRequired,
   overlayVideos: PropTypes.array.isRequired,
+  showAlertMessage: PropTypes.bool,
 };
+
+export default CollageModal;

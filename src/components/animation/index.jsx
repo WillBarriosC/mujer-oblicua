@@ -1,7 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { m } from "framer-motion";
-import { Box } from "@mui/material";
 
 const mainAnimationConfig = {
   initial: { opacity: 0, x: -100 },
@@ -20,40 +18,20 @@ const sectionAnimationConfig = {
   transition: { duration: 0.15, ease: "easeInOut" },
 };
 
-export const MainAnimation = React.memo(({ children }) => {
-  return (
-    <Box>
-      <m.div {...mainAnimationConfig}>{children}</m.div>
-    </Box>
-  );
-});
-
-export const NavigateAnimation = React.memo(({ children }) => {
-  return (
-    <Box>
-      <m.div {...navigateAnimationConfig}>{children}</m.div>
-    </Box>
-  );
-});
-
-export const SectionAnimation = React.memo(({ children }) => {
-  return (
-    <Box>
-      <m.div {...sectionAnimationConfig}>{children}</m.div>
-    </Box>
-  );
-});
-
+export function MainAnimation({ children }) {
+  return <m.div {...mainAnimationConfig}>{children}</m.div>;
+}
 MainAnimation.displayName = "MainAnimation";
-NavigateAnimation.displayName = "NavigateAnimation";
-SectionAnimation.displayName = "SectionAnimation";
+MainAnimation.propTypes = { children: PropTypes.node };
 
-MainAnimation.propTypes = {
-  children: PropTypes.node,
-};
-NavigateAnimation.propTypes = {
-  children: PropTypes.node,
-};
-SectionAnimation.propTypes = {
-  children: PropTypes.node,
-};
+export function NavigateAnimation({ children }) {
+  return <m.div {...navigateAnimationConfig}>{children}</m.div>;
+}
+NavigateAnimation.displayName = "NavigateAnimation";
+NavigateAnimation.propTypes = { children: PropTypes.node };
+
+export function SectionAnimation({ children }) {
+  return <m.div {...sectionAnimationConfig}>{children}</m.div>;
+}
+SectionAnimation.displayName = "SectionAnimation";
+SectionAnimation.propTypes = { children: PropTypes.node };

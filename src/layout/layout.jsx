@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import { memo } from "react";
 
 const Layout = memo(({ children }) => (
-  <Box display="flex" flexDirection="column" height="100vh">
+  <Box display="flex" flexDirection="column" height="100dvh">
     <Header />
     <Content>{children}</Content>
   </Box>
