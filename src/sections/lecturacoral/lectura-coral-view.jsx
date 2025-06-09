@@ -56,7 +56,7 @@ export default function LecturaCoralView() {
   };
 
   const textStyles = {
-    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+    fontSize: { xs: "0.86rem", sm: "0.86rem", md: "0.86rem", lg: "0.95rem", xl: "1rem" },
     lineHeight: 1.6,
     fontFamily: "SourceSerifPro",
     textAlign: "justify",
@@ -68,12 +68,11 @@ export default function LecturaCoralView() {
         <Container
           maxWidth="lg"
           sx={{
-            py: { xs: 3, sm: 4, md: 6 },
-            overflowY: { xs: "auto", sm: "visible" },
-            maxHeight: { xs: "100dvh", sm: "none" },
+            py: { xs: 4, sm: 6 },
+            px: { xs: 2, sm: 4 },
             display: "flex",
-            flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <SectionAnimation key={"book-intro"}>
@@ -132,7 +131,7 @@ export default function LecturaCoralView() {
                 posibilidades del cuerpo y la voz a través de la lectura
                 performática de poesía, las posibilidades expandidas del libro.
               </Typography>
-              <Box sx={{ height: { xs: 12, sm: 16 } }} />
+              <Box sx={{ height: { xs: 8, sm: 16 } }} />
               <Typography variant="body1" color="black" sx={textStyles}>
                 Esta lectura coral está inspirada en la experiencia performática
                 de la Acción Veladas, colectiva conformada por{" "}
@@ -189,12 +188,12 @@ export default function LecturaCoralView() {
                 </Box>
                 .
               </Typography>
-              <Box sx={{ height: { xs: 12, sm: 16 } }} />
+              <Box sx={{ height: { xs: 8, sm: 16 } }} />
               <Typography variant="body1" color="black" sx={textStyles}>
                 Esta grabación es una invitación a que explores, disfrutes y
                 compartas esta forma de leer y acuerpar estos poemas.
               </Typography>
-              <Box sx={{ height: { xs: 12, sm: 16 } }} />
+              <Box sx={{ height: { xs: 8, sm: 16 } }} />
               <Button
                 variant="contained"
                 onClick={handleContinue}
@@ -202,6 +201,7 @@ export default function LecturaCoralView() {
                   display: "flex",
                   justifyContent: "center",
                   mx: "auto",
+                  fontSize: { xs: "0.86rem", sm: "0.86rem", md: "0.86rem", lg: "0.95rem", xl: "1rem" },
                 }}
               >
                 Continuar

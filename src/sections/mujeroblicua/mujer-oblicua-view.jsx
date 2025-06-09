@@ -15,10 +15,10 @@ import {
   SectionAnimation,
   NavigateAnimation,
 } from "../../components/animation";
-import HTMLFlipBook from "react-pageflip";
 import PdfButton from "../../components/PdfButton";
 import Loading from "../../components/Loading";
 
+const HTMLFlipBook = lazy(() => import("react-pageflip"));
 const Cover = lazy(() => import("./components/Cover"));
 const VersoCover = lazy(() => import("./components/VersoCover"));
 const PoemOne = lazy(() => import("./components/PoemOne"));
@@ -74,7 +74,7 @@ export default function MujerOblicuaView() {
   };
 
   const textStyles = {
-    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+    fontSize: { xs: "0.86rem", sm: "0.86rem", md: "0.86rem", lg: "0.95rem", xl: "1rem" },
     lineHeight: 1.6,
     fontFamily: "SourceSerifPro",
     textAlign: "justify",
@@ -84,7 +84,16 @@ export default function MujerOblicuaView() {
   return (
     <>
       {showInitialContent ? (
-        <Container maxWidth="lg" sx={{ py: { xs: 3, sm: 4, md: 6 } }}>
+        <Container
+          maxWidth="lg"
+          sx={{
+            py: { xs: 4, sm: 6 },
+            px: { xs: 2, sm: 4 },
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <SectionAnimation key={"initial-content"}>
             <Paper sx={paperStyles}>
               <Box mb={2}>
@@ -110,7 +119,7 @@ export default function MujerOblicuaView() {
                 encontrarás dos videopoemas, collages animados y algunos de los
                 poemas que podrás descargar en el botón de PDF.
               </Typography>
-              <br />
+              <Box sx={{ height: { xs: 8, sm: 16 } }} />
               <Button
                 variant="contained"
                 onClick={handleContinue}
@@ -118,6 +127,7 @@ export default function MujerOblicuaView() {
                   display: "flex",
                   justifyContent: "center",
                   mx: "auto",
+                  fontSize: { xs: "0.86rem", sm: "0.86rem", md: "0.86rem", lg: "0.95rem", xl: "1rem" }
                 }}
               >
                 Continuar
@@ -126,73 +136,74 @@ export default function MujerOblicuaView() {
           </SectionAnimation>
         </Container>
       ) : (
-        <Container maxWidth="md" disableGutters sx={{ overflow: "hidden" }}>
-          <SectionAnimation key={"book-content"}>
-            <Stack spacing={2} sx={{ overflow: "hidden" }}>
-              <Suspense
-                fallback={
-                  <Box>
-                    <Loading />
-                  </Box>
-                }
-              >
+        <Suspense
+          fallback={
+            <Box>
+              <Loading />
+            </Box>
+          }
+        >
+          <Container maxWidth="md" disableGutters sx={{ overflow: "hidden" }}>
+            <SectionAnimation key={"book-content"}>
+              <Stack spacing={2} sx={{ overflow: "hidden" }}>
                 <HTMLFlipBook
-                  width={520}
-                  height={750}
-                  minWidth={235}
-                  minHeight={0}
+                  width={isMobile ? 570 : 520}
+                  height={690}
+                  minWidth={330}
                   size="stretch"
                   maxShadowOpacity={0}
                   showCover={true}
-                  flippingTime={900}
+                  flippingTime={700}
                   disableFlipByClick
                   showPageCorners={false}
                   renderOnlyPageLengthChange={true}
+                  mobileScrollSupport={true}
                 >
                   {pages.map((PageComponent, index) => (
                     <PageComponent key={index} />
                   ))}
                 </HTMLFlipBook>
-              </Suspense>
-              <Container>
-                <Box
-                  sx={{ flexGrow: 1 }}
-                  display="flex"
-                  justifyContent="center"
+                <Container>
+                  <Box
+                    sx={{ flexGrow: 1 }}
+                    display="flex"
+                    justifyContent="center"
+                  >
+                    <NavigateAnimation>
+                      <PdfButton />
+                    </NavigateAnimation>
+                  </Box>
+                </Container>
+              </Stack>
+            </SectionAnimation>
+            <SectionAnimation>
+              <Snackbar
+                open={showAlert}
+                autoHideDuration={10000}
+                onClose={() => setShowAlert(false)}
+                anchorOrigin={{ vertical: "top", horizontal: "center" }}
+              >
+                <MuiAlert
+                  elevation={15}
+                  variant="contained"
+                  onClose={() => setShowAlert(false)}
+                  severity="info"
+                  sx={{
+                    fontSize: "1.1rem",
+                    textAlign: "center",
+                    bgcolor: "rgba(0, 0, 0)",
+                    color: "white",
+                    mt: 15,
+                  }}
                 >
-                  <NavigateAnimation>
-                    <PdfButton />
-                  </NavigateAnimation>
-                </Box>
-              </Container>
-            </Stack>
-          </SectionAnimation>
-        </Container>
+                  Haz click en las esquinas del libro interactivo para pasar de
+                  página.
+                </MuiAlert>
+              </Snackbar>
+            </SectionAnimation>
+          </Container>
+        </Suspense>
       )}
-      <SectionAnimation>
-      <Snackbar
-        open={showAlert}
-        autoHideDuration={10000}
-        onClose={() => setShowAlert(false)}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      >
-        <MuiAlert
-          elevation={15}
-          variant="contained"
-          onClose={() => setShowAlert(false)}
-          severity="info"
-          sx={{
-            fontSize: "1.1rem",
-            textAlign: "center",
-            bgcolor: "rgba(0, 0, 0)",
-            color: "white",
-            mt: 15
-          }}
-        >
-          Haz click en las esquinas del libro interactivo para pasar de página.
-        </MuiAlert>
-      </Snackbar>
-      </SectionAnimation>
     </>
   );
 }

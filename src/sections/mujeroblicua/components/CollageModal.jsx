@@ -125,7 +125,6 @@ const CollageModal = ({
               }}
               src={video.sound}
             />
-            {/* Trigger area */}
             <Box
               onClick={() => handleClick(index)}
               sx={{

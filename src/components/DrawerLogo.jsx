@@ -18,8 +18,7 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
-//import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
-//import ContactsIcon from "@mui/icons-material/Contacts";
+import HandshakeIcon from "@mui/icons-material/Handshake";
 import imgSideBarLogo from "/media/ilustration_1.jpg";
 import imgSideBarMenuLogo from "/media/ilustration_3.jpg";
 import PropTypes from "prop-types";
@@ -40,8 +39,11 @@ const otherList = [
     path: "/acerca-de-mi",
     icon: <SelfImprovementIcon />,
   },
-  //{ title: "Donación", path: "/donacion", icon: <VolunteerActivismIcon /> },
-  //{ title: "Contacto", path: "/contacto", icon: <ContactsIcon /> },
+  {
+    title: "Créditos",
+    path: "/creditos",
+    icon: <HandshakeIcon />,
+  },
 ];
 
 const sideBarLogo = <img src={imgSideBarLogo} height={75} alt="sideBarLogo" />;

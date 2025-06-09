@@ -6,14 +6,14 @@ import { memo } from "react";
 const Content = memo(({ children }) => (
   <Box
     sx={{
-      height: "100dvh",
+      flex: 1,
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      overflow: "hidden",
+      overflow: {xs: "visible",sm: "visible", md: "hidden", lg: "hidden", xl: "hidden"},
     }}
   >
     {children}

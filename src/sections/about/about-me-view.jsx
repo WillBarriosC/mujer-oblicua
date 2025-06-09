@@ -15,7 +15,7 @@ import danielaBio from "/media/danielaBio.jpg";
 
 const AboutMeView = React.memo(() => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const navigate = useNavigate();
 
   const handleNavigateHome = useCallback(() => {
@@ -30,25 +30,26 @@ const AboutMeView = React.memo(() => {
   };
 
   const textStyles = {
-    fontSize: { xs: "0.95rem", sm: "1rem", md: "1.05rem" },
+    fontSize: { xs: "0.86rem", sm: "0.86rem", md: "0.86rem", lg: "0.95rem", xl: "1rem" },
     lineHeight: 1.6,
     fontFamily: "SourceSerifPro",
     textAlign: "justify",
-    textIndent: "2em",
   };
 
   return (
     <Container
       maxWidth="lg"
       sx={{
-        py: { xs: 3, sm: 4, md: 6 },
-        overflowY: { xs: "auto", sm: "visible" },
-        maxHeight: { xs: "100dvh", sm: "none" },
+        py: { xs: 4, sm: 6 },
+        px: { xs: 2, sm: 4 },
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <SectionAnimation>
-        <Paper sx={paperStyles}>
-          <Box mb={2}>
+        <Paper sx={{ ...paperStyles, boxSizing: "border-box" }}>
+          <Box mb={1}>
             <Typography
               variant={isMobile ? "h5" : "h4"}
               component="h5"
@@ -59,7 +60,7 @@ const AboutMeView = React.memo(() => {
               Daniela Prado
             </Typography>
             <Typography
-              variant="subtitle1"
+              variant="subtitle2"
               component="div"
               gutterBottom
               color="black"
@@ -69,12 +70,7 @@ const AboutMeView = React.memo(() => {
             </Typography>
           </Box>
           <Box>
-            <Grid
-              container
-              spacing={2}
-              alignItems="start"
-              direction="row"
-            >
+            <Grid container spacing={2} alignItems="start" direction="row">
               <Grid
                 item
                 xs={12}
@@ -92,8 +88,8 @@ const AboutMeView = React.memo(() => {
                   alt="Daniela Prado"
                   sx={{
                     width: "100%",
-                    objectFit: "cover",
-                    maxHeight: { xs: 320, sm: 400, md: 550 },
+                    objectFit: "contain",
+                    maxHeight: { xs:320, sm: 320, md: 500 },
                     borderRadius: 3,
                     boxShadow: 2,
                     ...(theme.breakpoints.up("md") && {
@@ -107,15 +103,10 @@ const AboutMeView = React.memo(() => {
                   }}
                 />
               </Grid>
-              {/* Texto después en móviles */}
-              <Grid
-                item
-                xs={12}
-                md={7}
-                order={{ xs: 2, md: 1 }}
-              >
+              <Grid item xs={12} md={7} order={{ xs: 2, md: 1 }}>
+                <Box sx={{ height: { xs: 8, sm: 16 } }} />
                 <Typography
-                  variant="body1"
+                  variant="subtitle2"
                   color="black"
                   sx={{ ...textStyles, textIndent: "0" }}
                 >
@@ -147,9 +138,9 @@ const AboutMeView = React.memo(() => {
                   procesos de autogestión editorial. Diseñadora editorial y
                   gráfica freelance.
                 </Typography>
-                <br />
+                <Box sx={{ height: { xs: 8, sm: 16 } }} />
                 <Typography
-                  variant="body1"
+                  variant="subtitle2"
                   color="black"
                   sx={{ ...textStyles, textIndent: "0" }}
                 >
@@ -171,9 +162,9 @@ const AboutMeView = React.memo(() => {
                   <b>Mujer oblicua</b> – Poemario web hipermedia. Tristes
                   Trópicos Editorial.2025
                 </Typography>
-                <br />
+                <Box sx={{ height: { xs: 8, sm: 16 } }} />
                 <Typography
-                  variant="body1"
+                  variant="subtitle2"
                   color="black"
                   sx={{ ...textStyles, textIndent: "0" }}
                 >
@@ -201,6 +192,7 @@ const AboutMeView = React.memo(() => {
               display: "flex",
               justifyContent: "center",
               mx: "auto",
+              fontSize: { xs: "0.86rem", sm: "0.86rem", md: "0.86rem", lg: "0.95rem", xl: "1rem" },
             }}
           >
             Regresar a home

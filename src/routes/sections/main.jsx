@@ -9,8 +9,8 @@ const HomePage = lazy(() => import("../../components/SectionLinks"));
 const Intro = lazy(() => import("../../pages/intro"));
 const MujerOblicuaPage = lazy(() => import("../../pages/mujer-oblicua"));
 const LecturaCoralPage = lazy(() => import("../../pages/lectura-coral"));
-const OlasDeHorasPage = lazy(() => import("../../pages/olas-de-horas"));
 const AboutMe = lazy(() => import("../../pages/about"));
+const AgradecimientosPage = lazy(() => import("../../pages/agradecimientos"));
 
 export const mainRoutes = [
   {
@@ -40,12 +40,12 @@ export const mainRoutes = [
         element: <LecturaCoralPage />,
       },
       {
-        path: "olas-de-horas",
-        element: <OlasDeHorasPage />,
-      },
-      {
         path: "acerca-de-mi",
         element: <AboutMe />,
+      },
+      {
+        path: "creditos",
+        element: <AgradecimientosPage />,
       },
     ],
   },
