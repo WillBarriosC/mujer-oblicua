@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 const credits = [
   {
     title: "Libro expandido",
-    content: "Textos, poemas, collages e idea original: Daniela Prado",
+    content: (<>Textos, poemas, collages e idea original: Daniela Prado</>),
   },
   {
     title: "Video poemas",
@@ -65,11 +65,15 @@ const credits = [
   },
   {
     title: "Programación del sitio web",
-    content: "Wilman Barrios",
+    content: (<>Wilman Barrios</>),
+  },
+  {
+    title: "Animaciones",
+    content: (<>Tlalli A y Alejandro Linares</>),
   },
   {
     title: "Libro expandido",
-    content: "Textos, poemas, collages e idea original: Daniela Prado",
+    content: (<>Textos, poemas, collages e idea original: Daniela Prado</>),
   },
   {
     title: "Video poemas",
@@ -117,11 +121,14 @@ const credits = [
   },
   {
     title: "Programación del sitio web",
-    content: "Wilman Barrios",
+    content: (<>Wilman Barrios</>),
   },
   {
+    title: "Animaciones",
+    content: (<>Tlalli A y Alejandro Linares</>),
+  },{
     title: "Libro expandido",
-    content: "Textos, poemas, collages e idea original: Daniela Prado",
+    content: (<>Textos, poemas, collages e idea original: Daniela Prado</>),
   },
   {
     title: "Video poemas",
@@ -169,111 +176,11 @@ const credits = [
   },
   {
     title: "Programación del sitio web",
-    content: "Wilman Barrios",
+    content: (<>Wilman Barrios</>),
   },
   {
-    title: "Libro expandido",
-    content: "Textos, poemas, collages e idea original: Daniela Prado",
-  },
-  {
-    title: "Video poemas",
-    content: (
-      <>
-        Video poema{" "}
-        <em>
-          <b>Ahora que</b>
-        </em>
-        <br />
-        Poema y voz: Daniela Prado
-        <br />
-        Realización de videopoema animado: Nathalia Orozco
-        <br />
-        Grabación y edición de sonido: Juan Dorantes, Daniela Prado
-        <br />
-        <br />
-        Video poema{" "}
-        <em>
-          <b>Una mujer los observa</b>
-        </em>
-        <br />
-        Poema y voz: Daniela Prado
-        <br />
-        Visuals: Sebastián Cadena
-        <br />
-        Grabación y música: Álvaro Salamanca
-      </>
-    ),
-  },
-  {
-    title: "Lectura Coral",
-    content: (
-      <>
-        Cantautora: Lucille Dupin
-        <br />
-        Poetas: Yirama Castaño, Carolina López, Alexandra Espinosa, Laura
-        Jaramillo, Lina Botero, Cristina Villota
-        <br />
-        Ambientación sonora: Sara Fernández
-        <br />
-        Edición de video: César Cano
-      </>
-    ),
-  },
-  {
-    title: "Programación del sitio web",
-    content: "Wilman Barrios",
-  },
-  {
-    title: "Libro expandido",
-    content: "Textos, poemas, collages e idea original: Daniela Prado",
-  },
-  {
-    title: "Video poemas",
-    content: (
-      <>
-        Video poema{" "}
-        <em>
-          <b>Ahora que</b>
-        </em>
-        <br />
-        Poema y voz: Daniela Prado
-        <br />
-        Realización de videopoema animado: Nathalia Orozco
-        <br />
-        Grabación y edición de sonido: Juan Dorantes, Daniela Prado
-        <br />
-        <br />
-        Video poema{" "}
-        <em>
-          <b>Una mujer los observa</b>
-        </em>
-        <br />
-        Poema y voz: Daniela Prado
-        <br />
-        Visuals: Sebastián Cadena
-        <br />
-        Grabación y música: Álvaro Salamanca
-      </>
-    ),
-  },
-  {
-    title: "Lectura Coral",
-    content: (
-      <>
-        Cantautora: Lucille Dupin
-        <br />
-        Poetas: Yirama Castaño, Carolina López, Alexandra Espinosa, Laura
-        Jaramillo, Lina Botero, Cristina Villota
-        <br />
-        Ambientación sonora: Sara Fernández
-        <br />
-        Edición de video: César Cano
-      </>
-    ),
-  },
-  {
-    title: "Programación del sitio web",
-    content: "Wilman Barrios",
+    title: "Animaciones",
+    content: (<>Tlalli A y Alejandro Linares</>),
   },
 ];
 
@@ -399,7 +306,7 @@ const AgradecimientosView = React.memo(() => {
               <Box
                 sx={{
                   width: "100%",
-                  maxWidth: 400,
+                  maxWidth: 500,
                   mx: "auto",
                   mt : 3,
                   position: "relative",
@@ -433,7 +340,7 @@ const AgradecimientosView = React.memo(() => {
                         animation: "creditsScroll 40s linear infinite",
                         "@keyframes creditsScroll": {
                           "0%": { top: "100%" },
-                          "100%": { top: `-${credits.length * 90}px` },
+                          "100%": { top: `-${credits.length * 95}px` },
                         },
                       }}
                     >
@@ -443,8 +350,7 @@ const AgradecimientosView = React.memo(() => {
                           sx={{
                             width: "100%",
                             textAlign: "center",
-                            mb: 0.5,
-                            minHeight: 100,
+                            mb: 2,
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "center",
@@ -454,6 +360,7 @@ const AgradecimientosView = React.memo(() => {
                           <Typography
                             variant="h6"
                             fontWeight="bold"
+                            mt={0}
                             sx={{
                               fontSize: {
                                 xs: "1.05rem",
@@ -466,6 +373,7 @@ const AgradecimientosView = React.memo(() => {
                           </Typography>
                           <Typography
                             variant="body2"
+                            mt={0}
                             sx={{
                               fontSize: {
                                 xs: "0.92rem",
@@ -490,7 +398,7 @@ const AgradecimientosView = React.memo(() => {
             sx={{
               display: "flex",
               justifyContent: "center",
-              mt: 3,
+              mt: 2,
               mx: "auto",
               fontSize: {
                 xs: "0.86rem",

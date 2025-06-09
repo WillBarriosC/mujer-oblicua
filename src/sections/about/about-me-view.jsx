@@ -134,7 +134,14 @@ const AboutMeView = React.memo(() => {
                   </a>{" "}
                   proyecto en el que edita y publica escritoras emergentes
                   colombianas y latinoamericanas. El azar de las formas es su
-                  proyecto poético/musical. Tallerista de escritura creativa y
+                  proyecto <a
+                    href="https://azaryformas.bandcamp.com/album/acuarim-ntima"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "inherit", textDecoration: "none" }}
+                  >
+                    <u>poético/musical.</u>
+                  </a>{" "} Tallerista de escritura creativa y
                   procesos de autogestión editorial. Diseñadora editorial y
                   gráfica freelance.
                 </Typography>
@@ -178,7 +185,7 @@ const AboutMeView = React.memo(() => {
                     rel="noopener noreferrer"
                     style={{ color: "inherit", textDecoration: "none" }}
                   >
-                    https://linktr.ee/danielaprse
+                    <b>https://linktr.ee/danielaprse</b>
                   </a>
                 </Typography>
               </Grid>
