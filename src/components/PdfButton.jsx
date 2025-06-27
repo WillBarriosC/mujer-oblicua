@@ -10,7 +10,7 @@ const linkAttributes = {
 const PdfButton = memo(() => {
   return (
     <a {...linkAttributes}>
-      <img src={pdfButton} height={50} alt="PDF Button" />
+      <img src={pdfButton} height={50} alt="PDF Button" loading="lazy" />
     </a>
   );
 });

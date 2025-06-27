@@ -18,6 +18,7 @@ export default function SectionLinks() {
         <MainAnimation>
           <NavigateAnimation>
             <Typography
+              component={"a"}
               variant="h4"
               sx={{
                 color: "white",

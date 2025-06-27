@@ -1,36 +1,37 @@
-import { forwardRef, useState } from "react";
+import { forwardRef, memo, useState } from "react";
 import PropTypes from "prop-types";
 import { Card, CardMedia, Container, CardActionArea } from "@mui/material";
 import videoPoemImg from "/media/videopoem-img.jpg";
 import VideoModal from "./VideoModal";
 
-const VideoPoemImg = forwardRef((props, ref) => {
-  const [open, setOpen] = useState(false);
+const VideoPoemImg = memo(
+  forwardRef((props, ref) => {
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    return (
+      <Container ref={ref} sx={{ backgroundColor: "white", borderRadius: 4 }}>
+        <Card
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "90%",
+            objectFit: "cover",
+          }}
+          onClick={handleOpen}
+        >
+          <CardActionArea>
+            <CardMedia component={"img"} image={videoPoemImg} alt="Video Poema" />
+          </CardActionArea>
+        </Card>
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  return (
-    <Container ref={ref} sx={{ backgroundColor: "white", borderRadius: 4 }}>
-      <Card
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "90%",
-          objectFit: "cover",
-        }}
-        onClick={handleOpen}
-      >
-        <CardActionArea>
-          <CardMedia component={"img"} image={videoPoemImg} alt="Video Poema" />
-        </CardActionArea>
-      </Card>
-
-      <VideoModal open={open} onClose={handleClose} />
-    </Container>
-  );
-});
+        <VideoModal open={open} onClose={handleClose} />
+      </Container>
+    );
+  })
+);
 
 export default VideoPoemImg;
 

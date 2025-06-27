@@ -46,7 +46,7 @@ const otherList = [
   },
 ];
 
-const sideBarLogo = <img src={imgSideBarLogo} height={75} alt="sideBarLogo" />;
+const sideBarLogo = <img src={imgSideBarLogo} height={75} alt="sideBarLogo" loading="lazy" />;
 const sideBarMenuLogo = (
   <img
     src={imgSideBarMenuLogo}

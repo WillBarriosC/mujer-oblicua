@@ -1,15 +1,14 @@
 import PropTypes from "prop-types";
 import Content from "./content";
-import { memo, useMemo } from "react";
+import { memo } from "react";
 
 const Compact = memo(({ children }) => {
-  const memoizedChildren = useMemo(() => children, [children]);
-  return <Content>{memoizedChildren}</Content>;
+  return <Content>{children}</Content>;
 });
 Compact.displayName = "Compact";
 
 Compact.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default Compact;

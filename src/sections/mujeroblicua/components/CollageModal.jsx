@@ -1,7 +1,6 @@
 import {
   Box,
   Dialog,
-  Fade,
   IconButton,
   Snackbar,
   Alert as MuiAlert,
@@ -9,7 +8,6 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import PropTypes from "prop-types";
 import { useEffect, useRef, useState } from "react";
-import { SectionAnimation } from "../../../components/animation";
 
 const CollageModal = ({
   open,
@@ -17,6 +15,7 @@ const CollageModal = ({
   image,
   overlayVideos = [],
   showAlertMessage = true,
+  imageWidth
 }) => {
   const [showAlert, setShowAlert] = useState(false);
   const overlayRefs = useRef([]);
@@ -54,11 +53,9 @@ const CollageModal = ({
       maxWidth="sm"
       open={open}
       onClose={onClose}
-      TransitionComponent={Fade}
       transitionDuration={400}
     >
       <Box sx={{ p: 2, bgcolor: "black", position: "relative" }}>
-        <SectionAnimation>
           {showAlertMessage && (
             <Snackbar
               open={showAlert}
@@ -83,11 +80,11 @@ const CollageModal = ({
               </MuiAlert>
             </Snackbar>
           )}
-        </SectionAnimation>
         <Box
           component="img"
           src={image}
-          sx={{ width: "100%", borderRadius: 1 }}
+          sx={{ borderRadius: 1}}
+          style={{ width: imageWidth || "100%" }}
         />
 
         {overlayVideos.map((video, index) => (
@@ -173,6 +170,7 @@ CollageModal.propTypes = {
   image: PropTypes.string.isRequired,
   overlayVideos: PropTypes.array.isRequired,
   showAlertMessage: PropTypes.bool,
+  imageWidth: PropTypes.string
 };
 
 export default CollageModal;

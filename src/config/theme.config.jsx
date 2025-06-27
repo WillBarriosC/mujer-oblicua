@@ -28,5 +28,5 @@ export const ThemeConfig = ({ children }) => {
 };
 
 ThemeConfig.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };

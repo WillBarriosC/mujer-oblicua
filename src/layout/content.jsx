@@ -5,6 +5,7 @@ import { memo } from "react";
 
 const Content = memo(({ children }) => (
   <Box
+    aria-hidden="true"
     sx={{
       flex: 1,
       display: "flex",
@@ -13,7 +14,7 @@ const Content = memo(({ children }) => (
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      overflow: {xs: "visible",sm: "visible", md: "hidden", lg: "hidden", xl: "hidden"},
+      overflow: { xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" },
     }}
   >
     {children}
@@ -23,7 +24,7 @@ const Content = memo(({ children }) => (
 Content.displayName = "Content";
 
 Content.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default Content;

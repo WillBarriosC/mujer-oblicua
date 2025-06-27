@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <img
       src={logo}
-      alt="logo"
+      alt="Logo Mujer Oblicua"
       height={75}
       loading="lazy"
       style={{ display: "block"}}
