@@ -14,7 +14,7 @@ const Content = memo(({ children }) => (
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      overflow: { xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" },
+      overflow: {xs: "visible",sm: "visible", md: "hidden", lg: "hidden", xl: "hidden"},
     }}
   >
     {children}
