@@ -21,7 +21,7 @@ const VideoSection = memo(() => (
     <Box sx={{ maxWidth: "100%", aspectRatio: 2 }}>
       <VideoPlayer
         controls
-        url={"https://www.youtube.com/watch?v=tBM6T5kI1NY"}
+        url={"https://www.youtube.com/watch?v=KxfPEdszhQU"}
         playing={true}
         width="100%"
         height="100%"

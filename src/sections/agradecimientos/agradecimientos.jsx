@@ -115,7 +115,7 @@ const credits = [
         <br />
         Ambientación sonora: Sara Fernández
         <br />
-        Edición de video: César Cano
+        Edición de video: Sebastián Cadena
       </>
     ),
   },
@@ -266,8 +266,8 @@ const AgradecimientosView = React.memo(() => {
                 </Typography>
                 <Box sx={{ height: { xs: 8, sm: 10 } }} />
                 <Typography variant="body1" color="black" sx={textStyles}>
-                  Agradezco inmensamente a las doctoras Irene Fenoglio, Lucille
-                  Herrasti, Zazil Lotz Cruz por sus comentarios y guía en este
+                  Agradezco inmensamente a las doctoras Irene Catalina Fenoglio, Lucille
+                  Herrasti y Cordero, Zazilha Lotz Cruz por sus comentarios y guía en este
                   proceso de aprendizaje.
                 </Typography>
                 <Box sx={{ height: { xs: 8, sm: 10 } }} />
