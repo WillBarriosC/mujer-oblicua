@@ -59,7 +59,7 @@ const credits = [
         <br />
         Ambientación sonora: Sara Fernández
         <br />
-        Edición de video: César Cano
+        Edición de video: Sebastián Cadena
       </>
     ),
   },
@@ -170,7 +170,7 @@ const credits = [
         <br />
         Ambientación sonora: Sara Fernández
         <br />
-        Edición de video: César Cano
+        Edición de video: Sebastián Cadena
       </>
     ),
   },
