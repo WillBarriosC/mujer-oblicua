@@ -70,7 +70,12 @@ export default function MujerOblicuaView() {
 
   const handlePrevPage = () => {
     if (bookRef.current) {
-      bookRef.current.pageFlip().flipPrev();
+      const pageFlip = bookRef.current.pageFlip();
+      if (isMobile && typeof pageFlip.turnToPage === "function") {
+        pageFlip.turnToPage(Math.max(currentPage - 1, 0));
+      } else {
+        pageFlip.flipPrev();
+      }
     }
   };
 
