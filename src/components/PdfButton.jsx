@@ -1,5 +1,5 @@
 import { memo } from "react";
-import pdfButton from "/media/button-pdf.jpg";
+//import pdfButton from "/media/button-pdf.jpg";
 
 const linkAttributes = {
   href: "/docs/Mujer-oblicua.pdf",
@@ -10,7 +10,7 @@ const linkAttributes = {
 const PdfButton = memo(() => {
   return (
     <a {...linkAttributes}>
-      <img src={pdfButton} height={50} alt="PDF Button" loading="lazy" />
+      <img src={"/media/button-pdf.jpg"} height={50} alt="PDF Button" loading="lazy" />
     </a>
   );
 });

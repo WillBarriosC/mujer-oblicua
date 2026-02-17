@@ -15,7 +15,7 @@ const CollageModal = ({
   image,
   overlayVideos = [],
   showAlertMessage = true,
-  imageWidth
+  imageWidth,
 }) => {
   const [showAlert, setShowAlert] = useState(false);
   const overlayRefs = useRef([]);
@@ -26,7 +26,11 @@ const CollageModal = ({
 
   const handleClick = (index) => {
     const { videoRef, audioRef } = overlayRefs.current[index] || {};
-    const { loopDuration, videoDelay = 1000, audioDelay = 1000 } = overlayVideos[index] || {};
+    const {
+      loopDuration,
+      videoDelay = 1000,
+      audioDelay = 1000,
+    } = overlayVideos[index] || {};
 
     if (videoRef) {
       setTimeout(() => {
@@ -56,34 +60,35 @@ const CollageModal = ({
       transitionDuration={400}
     >
       <Box sx={{ p: 2, bgcolor: "black", position: "relative" }}>
-          {showAlertMessage && (
-            <Snackbar
-              open={showAlert}
-              autoHideDuration={10000}
+        {showAlertMessage && (
+          <Snackbar
+            open={showAlert}
+            autoHideDuration={10000}
+            onClose={() => setShowAlert(false)}
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          >
+            <MuiAlert
+              elevation={15}
+              variant="contained"
               onClose={() => setShowAlert(false)}
-              anchorOrigin={{ vertical: "top", horizontal: "center" }}
+              severity="info"
+              sx={{
+                fontSize: "1.1rem",
+                textAlign: "center",
+                bgcolor: "rgba(0, 0, 0)",
+                color: "white",
+                mt: 15,
+              }}
             >
-              <MuiAlert
-                elevation={15}
-                variant="contained"
-                onClose={() => setShowAlert(false)}
-                severity="info"
-                sx={{
-                  fontSize: "1.1rem",
-                  textAlign: "center",
-                  bgcolor: "rgba(0, 0, 0)",
-                  color: "white",
-                  mt: 15,
-                }}
-              >
-                Haz click en las imágenes para descrubrir sus mensajes expandidos.
-              </MuiAlert>
-            </Snackbar>
-          )}
+              Haz click en las imágenes para descrubrir sus mensajes expandidos.
+            </MuiAlert>
+          </Snackbar>
+        )}
         <Box
           component="img"
           src={image}
-          sx={{ borderRadius: 1}}
+          loading="lazy"
+          sx={{ borderRadius: 1 }}
           style={{ width: imageWidth || "100%" }}
         />
 
@@ -104,7 +109,8 @@ const CollageModal = ({
           >
             <video
               ref={(el) => {
-                if (!overlayRefs.current[index]) overlayRefs.current[index] = {};
+                if (!overlayRefs.current[index])
+                  overlayRefs.current[index] = {};
                 overlayRefs.current[index].videoRef = el;
               }}
               src={video.src}
@@ -117,13 +123,22 @@ const CollageModal = ({
             />
             <audio
               ref={(el) => {
-                if (!overlayRefs.current[index]) overlayRefs.current[index] = {};
+                if (!overlayRefs.current[index])
+                  overlayRefs.current[index] = {};
                 overlayRefs.current[index].audioRef = el;
               }}
               src={video.sound}
             />
             <Box
-              onClick={() => handleClick(index)}
+              onClick={() => {
+                const count = video.repeatCount || 1;
+                const delay = (video.loopDuration || 2000) + 200;
+                for (let i = 0; i < count; i++) {
+                  setTimeout(() => {
+                    handleClick(index);
+                  }, i * delay);
+                }
+              }}
               sx={{
                 position: "absolute",
                 width: video.triggerWidth,
@@ -170,7 +185,7 @@ CollageModal.propTypes = {
   image: PropTypes.string.isRequired,
   overlayVideos: PropTypes.array.isRequired,
   showAlertMessage: PropTypes.bool,
-  imageWidth: PropTypes.string
+  imageWidth: PropTypes.string,
 };
 
 export default CollageModal;

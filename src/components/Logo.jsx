@@ -1,10 +1,10 @@
 import { memo } from "react";
-import logo from "/media/logo.jpg";
+//import logo from "/media/logo.jpg";
 
 const Logo = () => {
   return (
     <img
-      src={logo}
+      src={"/media/logo.jpg"}
       alt="Logo Mujer Oblicua"
       height={75}
       loading="lazy"

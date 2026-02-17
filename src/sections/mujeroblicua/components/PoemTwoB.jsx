@@ -1,8 +1,8 @@
 import { forwardRef, memo, useCallback, useState } from "react";
 import { Card, CardActionArea, CardMedia, Container } from "@mui/material";
-import poemTwoB from "/media/poem-two-b.jpg";
-import collage4 from "/media/collage-4.jpg";
 import CollageModal from "./CollageModal";
+/* import poemTwoB from "/media/poem-two-b.jpg";
+import collage4 from "/media/collage-4.jpg"; */
 
 const PoemTwoB = memo(
   forwardRef((props, ref) => {
@@ -14,7 +14,7 @@ const PoemTwoB = memo(
       <Container
         ref={ref}
         sx={{
-          backgroundImage: `url(${poemTwoB})`,
+          backgroundImage: "url(/media/poem-two-b.jpg)",
           borderRadius: 4,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -33,13 +33,13 @@ const PoemTwoB = memo(
           onClick={handleOpen}
         >
           <CardActionArea>
-            <CardMedia component="img" image={collage4} alt="Lo que honro" />
+            <CardMedia component="img" image={"/media/collage-4.jpg"} alt="Lo que honro" />
           </CardActionArea>
         </Card>
         <CollageModal
           open={open}
           onClose={handleClose}
-          image={collage4}
+          image={"/media/collage-4.jpg"}
           showAlertMessage={false}
         />
       </Container>

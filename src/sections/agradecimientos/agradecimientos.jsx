@@ -409,7 +409,7 @@ const AgradecimientosView = React.memo(() => {
               },
             }}
           >
-            Regresar a home
+            Volver al inicio
           </Button>
         </Paper>
       </SectionAnimation>

@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import {
   Box,
   Button,
@@ -33,7 +33,6 @@ import VideoPoemImgTwo from "./components/VideoPoemImgTwo";
 import PoemSix from "./components/PoemSix";
 import VideoPoemImg from "./components/VideoPoemImg";
 import BackCover from "./components/BackCover";
-import React from "react";
 
 const MemoizedPages = [
   React.memo(Cover),
@@ -57,12 +56,32 @@ const MemoizedPages = [
 export default function MujerOblicuaView() {
   const [showInitialContent, setShowInitialContent] = useState(true);
   const [showAlert, setShowAlert] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+  const bookRef = useRef();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const totalPages = MemoizedPages.length;
+
 
   const handleContinue = () => {
     setShowInitialContent(false);
     setShowAlert(true);
+  };
+
+  const handlePrevPage = () => {
+    if (bookRef.current) {
+      bookRef.current.pageFlip().flipPrev();
+    }
+  };
+
+  const handleNextPage = () => {
+    if (bookRef.current) {
+      bookRef.current.pageFlip().flipNext();
+    }
+  };
+
+  const handleFlip = (e) => {
+    setCurrentPage(e.data);
   };
 
   const paperStyles = useMemo(() => ({
@@ -151,7 +170,8 @@ export default function MujerOblicuaView() {
           <SectionAnimation key={"book-content"}>
             <Stack spacing={2} sx={{ overflow: "hidden" }}>
               <HTMLFlipBook
-                width={isMobile ? 570 : 520}
+                ref={bookRef}
+                width={isMobile ? 570 : 500}
                 height={690}
                 minWidth={330}
                 size="stretch"
@@ -162,11 +182,42 @@ export default function MujerOblicuaView() {
                 showPageCorners={false}
                 renderOnlyPageLengthChange={true}
                 mobileScrollSupport={true}
+                onFlip={handleFlip}
               >
                 {MemoizedPages.map((PageComponent, index) => (
                   <PageComponent key={index} />
                 ))}
               </HTMLFlipBook>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  mx: "auto",
+                  fontSize: {
+                    xs: "0.86rem",
+                    sm: "0.86rem",
+                    md: "0.86rem",
+                    lg: "0.95rem",
+                    xl: "1rem",
+                  },
+                  gap: 10,
+                }}
+              >
+                <Button
+                  variant="contained"
+                  onClick={handlePrevPage}
+                  disabled={currentPage === 0}
+                >
+                  Anterior
+                </Button>
+                <Button
+                  variant="contained"
+                  onClick={handleNextPage}
+                  disabled={currentPage === totalPages - 1}
+                >
+                  Siguiente
+                </Button>
+              </Box>
               <Container>
                 <Box
                   sx={{ flexGrow: 1 }}
@@ -199,7 +250,7 @@ export default function MujerOblicuaView() {
                 mt: 15,
               }}
             >
-              Haz click en las esquinas del libro interactivo para pasar de
+              Haz click en las esquinas del libro interactivo  o en los botones de navegación para pasar de
               página.
             </MuiAlert>
           </Snackbar>
@@ -207,4 +258,4 @@ export default function MujerOblicuaView() {
       )}
     </>
   );
-}
+};

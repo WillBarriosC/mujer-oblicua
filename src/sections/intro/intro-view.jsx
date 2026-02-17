@@ -111,7 +111,7 @@ const IntroView = React.memo(() => {
               fontSize: { xs: "0.86rem", sm: "0.86rem", md: "0.86rem", lg: "0.95rem", xl: "1rem" },
             }}
           >
-            Regresar a home
+            Volver al inicio
           </Button>
         </Paper>
       </SectionAnimation>

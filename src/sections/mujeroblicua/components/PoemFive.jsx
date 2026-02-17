@@ -1,13 +1,13 @@
 import { forwardRef, memo } from "react";
 import { Container } from "@mui/material";
-import poemFive from "/media/poem-five.jpg";
+//import poemFive from "/media/poem-five.jpg";
 
 const PoemFive = memo(
   forwardRef((props, ref) => (
     <Container
       ref={ref}
       sx={{
-        backgroundImage: `url(${poemFive})`,
+        backgroundImage: "url(/media/poem-five.jpg)",
         borderRadius: 4,
         backgroundSize: "cover",
         backgroundPosition: "center",

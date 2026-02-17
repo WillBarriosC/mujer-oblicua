@@ -19,9 +19,9 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovement";
 import HandshakeIcon from "@mui/icons-material/Handshake";
-import imgSideBarLogo from "/media/ilustration_1.jpg";
-import imgSideBarMenuLogo from "/media/ilustration_3.jpg";
 import PropTypes from "prop-types";
+/* import imgSideBarLogo from "/media/ilustration_1.jpg";
+import imgSideBarMenuLogo from "/media/ilustration_3.jpg"; */
 
 const sectionsList = [
   { title: "Intro", path: "/intro", icon: <PlayArrowIcon /> },
@@ -46,13 +46,14 @@ const otherList = [
   },
 ];
 
-const sideBarLogo = <img src={imgSideBarLogo} height={75} alt="sideBarLogo" loading="lazy" />;
+const sideBarLogo = <img src={"/media/ilustration_1.jpg"} height={75} alt="sideBarLogo" loading="lazy" />;
 const sideBarMenuLogo = (
   <img
-    src={imgSideBarMenuLogo}
+    src={"/media/ilustration_3.jpg"}
     width={"100%"}
     height={75}
     alt="sideBarMenuLogo"
+    loading="lazy"
   />
 );
 

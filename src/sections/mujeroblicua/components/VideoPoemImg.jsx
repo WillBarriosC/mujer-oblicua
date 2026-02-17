@@ -1,8 +1,8 @@
 import { forwardRef, memo, useState } from "react";
 import PropTypes from "prop-types";
 import { Card, CardMedia, Container, CardActionArea } from "@mui/material";
-import videoPoemImg from "/media/videopoem-img.jpg";
 import VideoModal from "./VideoModal";
+//import videoPoemImg from "/media/videopoem-img.jpg";
 
 const VideoPoemImg = memo(
   forwardRef((props, ref) => {
@@ -23,7 +23,7 @@ const VideoPoemImg = memo(
           onClick={handleOpen}
         >
           <CardActionArea>
-            <CardMedia component={"img"} image={videoPoemImg} alt="Video Poema" />
+            <CardMedia component={"img"} image={"/media/videopoem-img.jpg"} alt="Video Poema" />
           </CardActionArea>
         </Card>
 

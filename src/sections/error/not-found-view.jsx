@@ -34,7 +34,7 @@ export default function NotFoundView() {
         </Typography>
         <NavigateAnimation>
           <Button size="large" variant="contained" onClick={handleNavigateHome}>
-            Regresar a home
+            Volver al inicio
           </Button>
         </NavigateAnimation>
       </Box>

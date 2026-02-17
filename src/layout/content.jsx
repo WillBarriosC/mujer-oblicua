@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Box } from "@mui/material";
-import backgroundImage from "/background/overlay.jpg";
 import { memo } from "react";
+//import backgroundImage from "/background/overlay.jpg";
 
 const Content = memo(({ children }) => (
   <Box
@@ -11,7 +11,7 @@ const Content = memo(({ children }) => (
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      backgroundImage: `url(${backgroundImage})`,
+      backgroundImage: "url(/background/overlay.jpg)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       overflow: {xs: "visible",sm: "visible", md: "hidden", lg: "hidden", xl: "hidden"},

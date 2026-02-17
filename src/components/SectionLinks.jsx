@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { MainAnimation, NavigateAnimation } from "./animation";
-import backgroundImage from "/background/overlay.jpg";
 import { useMemo } from "react";
+//import backgroundImage from "/background/overlay.jpg";
 
 const sectionsList = [
   { title: "Intro", path: "/intro" },
@@ -44,7 +44,7 @@ export default function SectionLinks() {
     <Box
       sx={{
         width: "100vw",
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: "url(/background/overlay.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         filter: "grayscale(100%)",
