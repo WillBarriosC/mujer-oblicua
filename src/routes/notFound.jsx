@@ -1,9 +1,8 @@
-/* eslint-disable react-refresh/only-export-components */
 import { lazy } from "react";
-import Compact from "../../layout/compact";
+import Compact from "../layout/compact";
 import { Outlet } from "react-router-dom";
 
-const NotFound = lazy(() => import("../../pages/404"));
+const NotFound = lazy(() => import("../pages/404"));
 
 export const notFound = [
   {

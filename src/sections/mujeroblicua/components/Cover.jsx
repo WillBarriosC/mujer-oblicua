@@ -1,21 +1,21 @@
 import { forwardRef, memo } from "react";
 import { Container } from "@mui/material";
-//import portraitImage from "/media/portrait.jpg";
 
-const Cover = memo(
-  forwardRef((props, ref) => (
-    <Container
-      ref={ref}
-      sx={{
-        backgroundImage: "url(/media/portrait.jpg)",
-        borderRadius: 4,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    />
-  ))
-);
+const containerSx = {
+  backgroundImage: "url(/media/portrait.jpg)",
+  borderRadius: 4,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  width: "100%",
+  height: "100%",
+};
+
+const CoverBase = forwardRef((props, ref) => (
+  <Container ref={ref} sx={containerSx} />
+));
+
+CoverBase.displayName = "Cover";
+
+const Cover = memo(CoverBase);
 
 export default Cover;
-
-Cover.displayName = "Cover";

@@ -1,16 +1,15 @@
-/* eslint-disable react-refresh/only-export-components */
 import { Suspense, lazy } from "react";
 import { Outlet } from "react-router-dom";
-import Layout from "../../layout";
-import Loading from "../../components/Loading";
+import Layout from "../layout";
+import Loading from "../components/Loading";
 
-const HomePage = lazy(() => import("../../components/SectionLinks"));
+const HomePage = lazy(() => import("../components/SectionLinks"));
 
-const Intro = lazy(() => import("../../pages/intro"));
-const MujerOblicuaPage = lazy(() => import("../../pages/mujer-oblicua"));
-const LecturaCoralPage = lazy(() => import("../../pages/lectura-coral"));
-const AboutMe = lazy(() => import("../../pages/about"));
-const AgradecimientosPage = lazy(() => import("../../pages/agradecimientos"));
+const Intro = lazy(() => import("../pages/intro"));
+const MujerOblicuaPage = lazy(() => import("../pages/mujer-oblicua"));
+const LecturaCoralPage = lazy(() => import("../pages/lectura-coral"));
+const AboutMe = lazy(() => import("../pages/about"));
+const AgradecimientosPage = lazy(() => import("../pages/agradecimientos"));
 
 export const mainRoutes = [
   {

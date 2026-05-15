@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 const credits = [
   {
     title: "Libro expandido",
-    content: (<>Textos, poemas, collages e idea original: Daniela Prado</>),
+    content: <>Textos, poemas, collages e idea original: Daniela Prado</>,
   },
   {
     title: "Video poemas",
@@ -65,15 +65,15 @@ const credits = [
   },
   {
     title: "Programación del sitio web",
-    content: (<>Wilman Barrios</>),
+    content: <>Wilman Barrios</>,
   },
   {
     title: "Animaciones",
-    content: (<>Tlalli A y Alejandro Linares</>),
+    content: <>Tlalli A y Alejandro Linares</>,
   },
   {
     title: "Libro expandido",
-    content: (<>Textos, poemas, collages e idea original: Daniela Prado</>),
+    content: <>Textos, poemas, collages e idea original: Daniela Prado</>,
   },
   {
     title: "Video poemas",
@@ -121,14 +121,15 @@ const credits = [
   },
   {
     title: "Programación del sitio web",
-    content: (<>Wilman Barrios</>),
+    content: <>Wilman Barrios</>,
   },
   {
     title: "Animaciones",
-    content: (<>Tlalli A y Alejandro Linares</>),
-  },{
+    content: <>Tlalli A y Alejandro Linares</>,
+  },
+  {
     title: "Libro expandido",
-    content: (<>Textos, poemas, collages e idea original: Daniela Prado</>),
+    content: <>Textos, poemas, collages e idea original: Daniela Prado</>,
   },
   {
     title: "Video poemas",
@@ -176,11 +177,11 @@ const credits = [
   },
   {
     title: "Programación del sitio web",
-    content: (<>Wilman Barrios</>),
+    content: <>Wilman Barrios</>,
   },
   {
     title: "Animaciones",
-    content: (<>Tlalli A y Alejandro Linares</>),
+    content: <>Tlalli A y Alejandro Linares</>,
   },
 ];
 
@@ -266,9 +267,9 @@ const AgradecimientosView = React.memo(() => {
                 </Typography>
                 <Box sx={{ height: { xs: 8, sm: 10 } }} />
                 <Typography variant="body1" color="black" sx={textStyles}>
-                  Agradezco inmensamente a las doctoras Irene Catalina Fenoglio, Lucille
-                  Herrasti y Cordero, Zazilha Lotz Cruz por sus comentarios y guía en este
-                  proceso de aprendizaje.
+                  Agradezco inmensamente a las doctoras Irene Catalina Fenoglio,
+                  Lucille Herrasti y Cordero, Zazilha Lotz Cruz por sus
+                  comentarios y guía en este proceso de aprendizaje.
                 </Typography>
                 <Box sx={{ height: { xs: 8, sm: 10 } }} />
                 <Typography variant="body1" color="black" sx={textStyles}>
@@ -299,16 +300,13 @@ const AgradecimientosView = React.memo(() => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid container spacing={2} alignItems="start" direction="row">
-              
-            </Grid>
-            <Grid item xs={12} md={5} order={{ xs: 1, md: 2 }}>
+            <Grid container item xs={12} md={5} order={{ xs: 1, md: 2 }}>
               <Box
                 sx={{
                   width: "100%",
                   maxWidth: 500,
                   mx: "auto",
-                  mt : 3,
+                  mt: 3,
                   position: "relative",
                   height: { xs: 260, sm: 320, md: 450 },
                   overflow: "hidden",

@@ -4,7 +4,7 @@ import { notFound } from "./notFound";
 
 export const router = createBrowserRouter([
   ...mainRoutes,
-   ...notFound,
+  ...notFound,
 
-  { path: "*", element: <Navigate to="/404" replace/> },
+  { path: "*", element: <Navigate to="/404" replace /> },
 ]);

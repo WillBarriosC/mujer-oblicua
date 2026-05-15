@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 import { ThemeConfig } from "./config/theme.config";
 import { LazyMotion, domAnimation } from "framer-motion";
-import { router } from "./routes/sections";
+import { router } from "./routes";
 import { memo } from "react";
 
 const App = memo(() => (
